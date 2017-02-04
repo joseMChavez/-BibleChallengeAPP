@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleChallengeAPP", "BibleChallengeAPP\BibleChallengeAPP.csproj", "{BBCB9970-388E-472E-8C31-7B56B12846AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{9BC9C015-4D21-44C6-A374-A678A4FD77FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{4BBEB819-D5F1-4C3D-95E4-9EE82F2D5143}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBCB9970-388E-472E-8C31-7B56B12846AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBCB9970-388E-472E-8C31-7B56B12846AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBCB9970-388E-472E-8C31-7B56B12846AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBCB9970-388E-472E-8C31-7B56B12846AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC9C015-4D21-44C6-A374-A678A4FD77FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC9C015-4D21-44C6-A374-A678A4FD77FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC9C015-4D21-44C6-A374-A678A4FD77FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC9C015-4D21-44C6-A374-A678A4FD77FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BBEB819-D5F1-4C3D-95E4-9EE82F2D5143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BBEB819-D5F1-4C3D-95E4-9EE82F2D5143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BBEB819-D5F1-4C3D-95E4-9EE82F2D5143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BBEB819-D5F1-4C3D-95E4-9EE82F2D5143}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
