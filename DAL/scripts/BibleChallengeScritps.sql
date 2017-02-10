@@ -15,3 +15,4 @@ Create table Equipos(
 EquipoId int identity(1,1) primary key,
 Descripcion varchar(70)
 )
+select * from Equipos

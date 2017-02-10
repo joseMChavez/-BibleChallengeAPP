@@ -22,15 +22,16 @@ namespace BLL
         public override bool Insertar()
         {
             ConexionDb con = new ConexionDb();
+            bool retorno = false;
             try
             {
-                return con.Ejecutar(string.Format(" Insert Into Equipos(EquipoId,Descripcion) Values({0},'{1}')", this.EquiposId, this.Descripcion));
+                retorno= con.Ejecutar(string.Format(" Insert Into Equipos(Descripcion) Values('{0}')", this.Descripcion));
             }
             catch (Exception e)
             {
                 throw e;
             }
-
+            return retorno;
         }
 
         public override bool Editar()
@@ -92,7 +93,7 @@ namespace BLL
             {
                 orderby = " order by ";
             }
-            return dt = con.ObtenerDatos("select " + Campos + " Equipos where " + Condicion + orderby);
+            return dt = con.ObtenerDatos("select " + Campos + " Partucipantes where " + Condicion + orderby);
         }
     }
 }

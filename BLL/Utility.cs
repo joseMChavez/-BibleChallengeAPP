@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Windows.Forms;
+using MetroFramework.Forms;
+using MetroFramework.Controls;
 
 
 namespace BLL
@@ -27,18 +29,18 @@ namespace BLL
         }
         //Este metodo es para Validar los Textbox
         //1 Informacion...2 Error....3 Cuidado.
-        public static void Mensajes(int selec, string mensaje)
+        public static void Mensajes(IWin32Window t,int selec, string mensaje)
         {
             switch (selec)
             {
                 case 1:
-                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Information, 200);
                     break;
                 case 2:
-                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Error, 200);
                     break;
                 case 3:
-                    MessageBox.Show(mensaje, "Teacher Control", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning, 200);
                     break;
                 default:
                     break;
