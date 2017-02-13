@@ -45,8 +45,9 @@ namespace BibleChallengeAPP
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-           
-            MetroFramework.MetroMessageBox.Show( this, "hola", "Saludo", MessageBoxButtons.OK, MessageBoxIcon.Warning,200);
+
+            Form.rParticipantes rp = new Form.rParticipantes();
+            rp.Show();
         }
 
         private void metroTile2_Click(object sender, EventArgs e)

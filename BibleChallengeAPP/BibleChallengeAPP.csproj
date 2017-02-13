@@ -92,6 +92,12 @@
     <Compile Include="Form\rEquipos.Designer.cs">
       <DependentUpon>rEquipos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\rParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\rParticipantes.Designer.cs">
+      <DependentUpon>rParticipantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form\rEquipos.resx">
       <DependentUpon>rEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\rParticipantes.resx">
+      <DependentUpon>rParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

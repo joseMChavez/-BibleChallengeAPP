@@ -219,7 +219,9 @@
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Modificarbutton);
             this.Controls.Add(this.Nuevobutton);
+            this.MaximizeBox = false;
             this.Name = "rEquipos";
+            this.Resizable = false;
             this.Text = "Registro de Equipos";
             this.Load += new System.EventHandler(this.rEquipos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EquiposErrorProvider)).EndInit();

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.RegistrosMetroTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.ResultadosmetroTabPage = new MetroFramework.Controls.MetroTabPage();
             this.VerResultadosButton = new MetroFramework.Controls.MetroButton();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.AJugarmetroTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTabControl1.SuspendLayout();
             this.RegistrosMetroTabPage.SuspendLayout();
             this.ResultadosmetroTabPage.SuspendLayout();
@@ -80,17 +80,48 @@
             this.RegistrosMetroTabPage.Text = "Registros";
             this.RegistrosMetroTabPage.VerticalScrollbarBarColor = true;
             this.RegistrosMetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.RegistrosMetroTabPage.VerticalScrollbarSize = 7;
+            this.RegistrosMetroTabPage.VerticalScrollbarSize = 6;
             // 
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
+            this.metroTile3.BackColor = System.Drawing.SystemColors.Highlight;
             this.metroTile3.Location = new System.Drawing.Point(122, 127);
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(140, 120);
+            this.metroTile3.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile3.TabIndex = 4;
             this.metroTile3.Text = "Nuevos Retos";
+            this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTile3.UseSelectable = true;
+            // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.metroTile2.Location = new System.Drawing.Point(3, 127);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.Size = new System.Drawing.Size(113, 120);
+            this.metroTile2.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile2.TabIndex = 3;
+            this.metroTile2.Text = "Nuevo Equipo";
+            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile2.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
+            this.metroTile2.UseSelectable = true;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(3, 0);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(259, 121);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTile1.TabIndex = 2;
+            this.metroTile1.Text = "Nuevo Participante";
+            this.metroTile1.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // ResultadosmetroTabPage
             // 
@@ -106,7 +137,7 @@
             this.ResultadosmetroTabPage.Text = "Resultados";
             this.ResultadosmetroTabPage.VerticalScrollbarBarColor = true;
             this.ResultadosmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.ResultadosmetroTabPage.VerticalScrollbarSize = 7;
+            this.ResultadosmetroTabPage.VerticalScrollbarSize = 6;
             // 
             // VerResultadosButton
             // 
@@ -121,18 +152,18 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(272, 3);
             this.chart1.Name = "chart1";
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(717, 404);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "Resultados";
@@ -149,33 +180,7 @@
             this.AJugarmetroTabPage.Text = "A Jugar";
             this.AJugarmetroTabPage.VerticalScrollbarBarColor = true;
             this.AJugarmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.AJugarmetroTabPage.VerticalScrollbarSize = 7;
-            // 
-            // metroTile2
-            // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.BackColor = System.Drawing.SystemColors.Highlight;
-            this.metroTile2.Location = new System.Drawing.Point(3, 127);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(113, 120);
-            this.metroTile2.TabIndex = 3;
-            this.metroTile2.Text = "Nuevo Equipo";
-            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile2.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
-            this.metroTile2.UseSelectable = true;
-            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(3, 0);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(259, 121);
-            this.metroTile1.TabIndex = 2;
-            this.metroTile1.Text = "Nuevo Participante";
-            this.metroTile1.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            this.AJugarmetroTabPage.VerticalScrollbarSize = 6;
             // 
             // MainForm
             // 
@@ -188,8 +193,10 @@
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(23, 60, 23, 20);
-            this.Text = "Iglesia Cristiana Oasis SFM";
+            this.Resizable = false;
+            this.Text = "C.B.OasisSFM Beta";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.metroTabControl1.ResumeLayout(false);
             this.RegistrosMetroTabPage.ResumeLayout(false);
             this.ResultadosmetroTabPage.ResumeLayout(false);
