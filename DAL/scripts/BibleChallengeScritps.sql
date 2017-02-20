@@ -4,10 +4,10 @@
 	 Nombres varchar(120),
 	 Apodo varchar(40),
 	 Genero int,
-	 Fecha Date,
-	 FechaNacimiento DateTime
+	 Fecha varchar(20)
+	 
 )
-
+select * from Participantes
 go
 
 Create table Equipos(

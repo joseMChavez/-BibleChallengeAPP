@@ -14,7 +14,7 @@ namespace BLL
         public string Nombres { get; set; }
         public string Apodo { get; set; }
         public int Genero { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Fecha { get; set; }
 
         public Participantes()
         {
@@ -23,7 +23,7 @@ namespace BLL
             this.Nombres = "";
             this.Apodo = "";
             this.Genero = 0;
-            this.Fecha = new DateTime();
+            this.Fecha = "";
         }
        
         public override bool Insertar()
@@ -31,7 +31,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format(" Insert Into Participantes(ParticipanteId,EquipoId,Nombres,Apodo,Genero,Fecha) Values({0},{1},'{2}','{3}',{4},'{5}')", this.ParticipanteId,this.EquipoId,this.Nombres,this.Apodo,this.Genero,this.Fecha));
+                return con.Ejecutar(string.Format(" Insert Into Participantes(EquipoId,Nombres,Apodo,Genero,Fecha) Values({0},'{1}','{2}',{3},'{4}')", this.EquipoId,this.Nombres,this.Apodo,this.Genero,this.Fecha));
             }
             catch (Exception e){ throw e; }
 
@@ -72,7 +72,7 @@ namespace BLL
                     this.Nombres = dt.Rows[0]["Nombres"].ToString();
                     this.Apodo = dt.Rows[0]["Apodo"].ToString();
                     this.Genero = (int)dt.Rows[0]["Genero"];
-                    this.Fecha = (DateTime)dt.Rows[0]["Fecha"];
+                    this.Fecha = dt.Rows[0]["Fecha"].ToString();
 
                 }
             }

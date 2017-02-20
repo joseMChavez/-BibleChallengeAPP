@@ -35,18 +35,18 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Modificarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.IdTextBox = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.ApodoTextBox = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.NombreCTextBox4 = new MetroFramework.Controls.MetroTextBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.FechaDateTime = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.EquiposCbox = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.MasculinoRadioBtn = new MetroFramework.Controls.MetroRadioButton();
+            this.FemeninoRadioBtn = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
@@ -70,6 +70,7 @@
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Cancelarbutton
             // 
@@ -176,35 +177,36 @@
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // metroTextBox1
+            // IdTextBox
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(42, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(44, 104);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(64, 23);
-            this.metroTextBox1.TabIndex = 16;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.IdTextBox.CustomButton.Image = null;
+            this.IdTextBox.CustomButton.Location = new System.Drawing.Point(42, 1);
+            this.IdTextBox.CustomButton.Name = "";
+            this.IdTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.IdTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.IdTextBox.CustomButton.TabIndex = 1;
+            this.IdTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.IdTextBox.CustomButton.UseSelectable = true;
+            this.IdTextBox.CustomButton.Visible = false;
+            this.IdTextBox.Lines = new string[0];
+            this.IdTextBox.Location = new System.Drawing.Point(44, 104);
+            this.IdTextBox.MaxLength = 3;
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.PasswordChar = '\0';
+            this.IdTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.IdTextBox.SelectedText = "";
+            this.IdTextBox.SelectionLength = 0;
+            this.IdTextBox.SelectionStart = 0;
+            this.IdTextBox.ShortcutsEnabled = true;
+            this.IdTextBox.Size = new System.Drawing.Size(64, 23);
+            this.IdTextBox.TabIndex = 16;
+            this.IdTextBox.UseSelectable = true;
+            this.IdTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.IdTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.IdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdTextBox_KeyPress);
             // 
             // metroLabel1
             // 
@@ -248,7 +250,7 @@
             this.ApodoTextBox.CustomButton.Visible = false;
             this.ApodoTextBox.Lines = new string[0];
             this.ApodoTextBox.Location = new System.Drawing.Point(157, 188);
-            this.ApodoTextBox.MaxLength = 32767;
+            this.ApodoTextBox.MaxLength = 30;
             this.ApodoTextBox.Name = "ApodoTextBox";
             this.ApodoTextBox.PasswordChar = '\0';
             this.ApodoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -261,6 +263,7 @@
             this.ApodoTextBox.UseSelectable = true;
             this.ApodoTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.ApodoTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.ApodoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApodoTextBox_KeyPress);
             // 
             // metroLabel4
             // 
@@ -290,7 +293,7 @@
             this.NombreCTextBox4.CustomButton.Visible = false;
             this.NombreCTextBox4.Lines = new string[0];
             this.NombreCTextBox4.Location = new System.Drawing.Point(157, 145);
-            this.NombreCTextBox4.MaxLength = 32767;
+            this.NombreCTextBox4.MaxLength = 80;
             this.NombreCTextBox4.Name = "NombreCTextBox4";
             this.NombreCTextBox4.PasswordChar = '\0';
             this.NombreCTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -303,15 +306,17 @@
             this.NombreCTextBox4.UseSelectable = true;
             this.NombreCTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.NombreCTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.NombreCTextBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreCTextBox4_KeyPress);
             // 
-            // metroDateTime1
+            // FechaDateTime
             // 
-            this.metroDateTime1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.metroDateTime1.Location = new System.Drawing.Point(397, 99);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(106, 29);
-            this.metroDateTime1.TabIndex = 24;
+            this.FechaDateTime.CustomFormat = "dd/MM/yyyy";
+            this.FechaDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechaDateTime.Location = new System.Drawing.Point(397, 99);
+            this.FechaDateTime.MinimumSize = new System.Drawing.Size(0, 29);
+            this.FechaDateTime.Name = "FechaDateTime";
+            this.FechaDateTime.Size = new System.Drawing.Size(106, 29);
+            this.FechaDateTime.TabIndex = 24;
             // 
             // metroLabel5
             // 
@@ -350,25 +355,25 @@
             this.metroLabel3.Text = "Equipo:";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // metroRadioButton1
+            // MasculinoRadioBtn
             // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(157, 227);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(34, 15);
-            this.metroRadioButton1.TabIndex = 28;
-            this.metroRadioButton1.Text = "M";
-            this.metroRadioButton1.UseSelectable = true;
+            this.MasculinoRadioBtn.AutoSize = true;
+            this.MasculinoRadioBtn.Location = new System.Drawing.Point(157, 227);
+            this.MasculinoRadioBtn.Name = "MasculinoRadioBtn";
+            this.MasculinoRadioBtn.Size = new System.Drawing.Size(34, 15);
+            this.MasculinoRadioBtn.TabIndex = 28;
+            this.MasculinoRadioBtn.Text = "M";
+            this.MasculinoRadioBtn.UseSelectable = true;
             // 
-            // metroRadioButton2
+            // FemeninoRadioBtn
             // 
-            this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.Location = new System.Drawing.Point(198, 226);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(29, 15);
-            this.metroRadioButton2.TabIndex = 29;
-            this.metroRadioButton2.Text = "F";
-            this.metroRadioButton2.UseSelectable = true;
+            this.FemeninoRadioBtn.AutoSize = true;
+            this.FemeninoRadioBtn.Location = new System.Drawing.Point(198, 226);
+            this.FemeninoRadioBtn.Name = "FemeninoRadioBtn";
+            this.FemeninoRadioBtn.Size = new System.Drawing.Size(29, 15);
+            this.FemeninoRadioBtn.TabIndex = 29;
+            this.FemeninoRadioBtn.Text = "F";
+            this.FemeninoRadioBtn.UseSelectable = true;
             // 
             // metroLabel6
             // 
@@ -395,18 +400,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 371);
             this.Controls.Add(this.metroLabel6);
-            this.Controls.Add(this.metroRadioButton2);
-            this.Controls.Add(this.metroRadioButton1);
+            this.Controls.Add(this.FemeninoRadioBtn);
+            this.Controls.Add(this.MasculinoRadioBtn);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.EquiposCbox);
             this.Controls.Add(this.metroLabel5);
-            this.Controls.Add(this.metroDateTime1);
+            this.Controls.Add(this.FechaDateTime);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.NombreCTextBox4);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.ApodoTextBox);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Cancelarbutton);
             this.Controls.Add(this.Eliminarbutton);
@@ -435,18 +440,18 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Modificarbutton;
         private System.Windows.Forms.Button Nuevobutton;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox IdTextBox;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox ApodoTextBox;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroTextBox NombreCTextBox4;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroDateTime FechaDateTime;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroComboBox EquiposCbox;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
+        private MetroFramework.Controls.MetroRadioButton MasculinoRadioBtn;
+        private MetroFramework.Controls.MetroRadioButton FemeninoRadioBtn;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
     }

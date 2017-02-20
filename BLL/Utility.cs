@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Data;
+using DAL;
 using MetroFramework.Controls;
 
 
@@ -14,7 +16,29 @@ namespace BLL
 {
     public static class Utility
     {
+        public static DataTable ListadoGenerico(string View, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order BY  " + Orden;
+            return conexion.ObtenerDatos("Select * From " + View + " Where " + Condicion + ordenFinal);
+        }
+        public static void Limpiar(Control c)
+        {
+            foreach (Control item in c.Controls)
+            {
+                if (item is MetroTextBox)
+                {
+                    item.Text = "";
+                }
+                else if (item is TextBox)
+                {
+                    item.Text = "";
+                }
 
+            }
+        }
         // Regex esta función permite mediante un patrón verificar si una cadena cumple con ese patrón 
         public static bool ComprobarFormatoEmail(string sEmailAComprobar)
         {
@@ -29,18 +53,35 @@ namespace BLL
         }
         //Este metodo es para Validar los Textbox
         //1 Informacion...2 Error....3 Cuidado.
-        public static void Mensajes(IWin32Window t,int selec, string mensaje)
+        public static void Mensajes(IWin32Window t, int selec, string mensaje)
         {
             switch (selec)
             {
                 case 1:
-                    MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Information, 200);
+                    MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, 150);
                     break;
                 case 2:
                     MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Error, 200);
                     break;
                 case 3:
                     MetroFramework.MetroMessageBox.Show(t, mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning, 200);
+                    break;
+                default:
+                    break;
+            }
+        }
+        public static void MensajesDos(int selec, string mensaje)
+        {
+            switch (selec)
+            {
+                case 1:
+                    MessageBox.Show(mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    break;
+                case 2:
+                    MessageBox.Show(mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 3:
+                    MessageBox.Show(mensaje, "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 default:
                     break;
@@ -121,6 +162,22 @@ namespace BLL
                 e.Clear();
 
             }
+
+        }
+        public static void ActivarTbx( Control ct,bool act)
+        {
+            foreach (Control  c in ct.Controls)
+            {
+                if (c is MetroTextBox || c is TextBox)
+                {
+                    c.Enabled = act;
+                }
+               
+            }
+        }
+        public static bool ValidarTbx(Control tbUno)
+        {
+            return !string.IsNullOrWhiteSpace(tbUno.Text);
         }
 
     }

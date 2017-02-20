@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.RegistrosMetroTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
@@ -80,7 +80,7 @@
             this.RegistrosMetroTabPage.Text = "Registros";
             this.RegistrosMetroTabPage.VerticalScrollbarBarColor = true;
             this.RegistrosMetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.RegistrosMetroTabPage.VerticalScrollbarSize = 6;
+            this.RegistrosMetroTabPage.VerticalScrollbarSize = 5;
             // 
             // metroTile3
             // 
@@ -137,7 +137,7 @@
             this.ResultadosmetroTabPage.Text = "Resultados";
             this.ResultadosmetroTabPage.VerticalScrollbarBarColor = true;
             this.ResultadosmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.ResultadosmetroTabPage.VerticalScrollbarSize = 6;
+            this.ResultadosmetroTabPage.VerticalScrollbarSize = 5;
             // 
             // VerResultadosButton
             // 
@@ -152,18 +152,18 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(272, 3);
             this.chart1.Name = "chart1";
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(717, 404);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "Resultados";
@@ -180,7 +180,7 @@
             this.AJugarmetroTabPage.Text = "A Jugar";
             this.AJugarmetroTabPage.VerticalScrollbarBarColor = true;
             this.AJugarmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.AJugarmetroTabPage.VerticalScrollbarSize = 6;
+            this.AJugarmetroTabPage.VerticalScrollbarSize = 5;
             // 
             // MainForm
             // 
@@ -196,6 +196,7 @@
             this.Resizable = false;
             this.Text = "C.B.OasisSFM Beta";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.metroTabControl1.ResumeLayout(false);
             this.RegistrosMetroTabPage.ResumeLayout(false);

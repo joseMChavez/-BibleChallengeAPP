@@ -61,7 +61,8 @@ namespace BibleChallengeAPP.Form
 
         private void Cancelarbutton_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            Utility.Limpiar(this);
+            Utility.ActivarTbx(this, false);
             ActivarBotones(false);
             DespuesConsultaBotones(false);
             Nuevobutton.Enabled = true;
@@ -80,56 +81,46 @@ namespace BibleChallengeAPP.Form
                     
                     ok = grupo.Insertar();
                 }
-                if (ok)
-                {
-                    Limpiar();
-                    Utility.Mensajes(this, 1, "Nuevo Equipo Guardado Correctamente!");
-                }
-                   
-            }
-            catch (Exception ex)
-            {
-
-                Utility.Mensajes(this, 3, "Comunicate con Jose Chavez. \n"+ex.Message);
-            }
-        }
-
-        private void Modificarbutton_Click(object sender, EventArgs e)
-        {
-            Equipos grupo = new Equipos();
-            bool ok = false;
-            try
-            {
-                Utility.Validar(DesctextBox, EquiposErrorProvider, "Pon Un Nombre al Equipo");
-                LLenarClase(grupo);
-                if (string.IsNullOrWhiteSpace(IdtextBox.Text)==false)
+                else
                 {
                     ok = grupo.Editar();
                 }
                 if (ok)
                 {
                     Limpiar();
-                    Utility.Mensajes(this, 1, "Equipo Modificado Correctamente!");
+                    Utility.MensajesDos( 1, "Dios te Bendiga! \n Bien Hecho!");
                 }
-
+                   
             }
             catch (Exception ex)
             {
 
-                Utility.Mensajes(this, 3, "Comunicate con Jose Chavez. \n" + ex.Message);
+                Utility.Mensajes(this, 3,ex.Message);
             }
+        }
+
+        private void Modificarbutton_Click(object sender, EventArgs e)
+        {
+            
+            Utility.ActivarTbx(this, true);
+            ActivarBotones(true);
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             Equipos grupo = new Equipos();
             bool ok = false;
+            DialogResult res;
+            res = MessageBox.Show( "¿Esta seguro que desea eliminar este el Equipo " + DesctextBox.Text + "?", "C.B.OasisSFM",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             try
             {
                 LLenarClase(grupo);
                 if (string.IsNullOrWhiteSpace(IdtextBox.Text))
                 {
-                    ok = grupo.Eliminar();
+                    if (res == DialogResult.Yes)
+                    {
+                        ok = grupo.Eliminar();
+                    }
                 }
                 if (ok)
                 {
