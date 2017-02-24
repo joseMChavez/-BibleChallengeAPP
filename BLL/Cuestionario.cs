@@ -36,7 +36,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format("Insert Into Cuestionario(Pregunta,Repuesta,RepuestaMalaA,RepuestaMalaB,RepuestaMalaC,Tipo,Etapa) values('{0}','{1}','{2}','{3}','{4}',{5},{6})",this.Pregunta,this.RepuestaBien,this.RepuestaMalaA,this.RepuestaMalaB,this.RepuestaMalaC,this.Tipo,this.Etapa));
+                return con.Ejecutar(string.Format("Insert Into Cuestionario(Pregunta,Repuesta,RepuestaMalaA,RepuestaMalaB,RepuestaMalaC,Tipo,Etapa) values('{0}','{1}','{2}','{3}','{4}',{5},{6})", this.Pregunta,this.RepuestaBien,this.RepuestaMalaA,this.RepuestaMalaB,this.RepuestaMalaC,this.Tipo,this.Etapa));
             }
             catch (Exception e)
             {
@@ -59,7 +59,29 @@ namespace BLL
         }
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+            try
+            {
+                dt = con.ObtenerDatos("select * from Cuestionario where CuestionarioId=" + IdBuscado);
+                if (dt.Rows.Count > 0)
+                {
+                    this.CuestionarioId = (int)dt.Rows[0]["CuestionarioId"];
+                    this.Pregunta = dt.Rows[0]["Pregunta"].ToString();
+                    this.RepuestaBien = dt.Rows[0]["Repuesta"].ToString();
+                    this.RepuestaMalaA = dt.Rows[0]["RepuestaMalaA"].ToString();
+                    this.RepuestaMalaB = dt.Rows[0]["RepuestaMalaB"].ToString();
+                    this.RepuestaMalaC = dt.Rows[0]["RepuestaMalaC"].ToString();
+                    this.Tipo = (int)dt.Rows[0]["Tipo"];
+                    this.Etapa = (int)dt.Rows[0]["Etapa"];
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
         }
 
        
@@ -69,7 +91,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format("delecte from Cuistionario where CuestionarioId={0}", this.CuestionarioId));
+                return con.Ejecutar(string.Format("delecte from Cuestionario where CuestionarioId={0}", this.CuestionarioId));
             }
             catch (Exception e)
             {
@@ -82,7 +104,11 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            ConexionDb db = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Order BY  " + Orden;
+            return  db.ObtenerDatos("select " + Campos + " from Cuestionario where " + Condicion+ordenFinal);
         }
     }
 }
