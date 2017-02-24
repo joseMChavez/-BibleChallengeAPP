@@ -15,4 +15,22 @@ Create table Equipos(
 EquipoId int identity(1,1) primary key,
 Descripcion varchar(70)
 )
-select * from Equipos
+go
+create table Cuestionario( 
+      CuestionarioId int identity(1,1) primary key,
+	  Pregunta varchar(max),
+	  Repuesta varchar(max),
+	  RepuestaMalaA varchar(max),
+	  RepuestaMalaB varchar(max),
+	  RepuestaMalaC varchar(max),
+	  Tipo int,
+	  Etapa int
+)go
+create Table Tablero(
+      TabletoId int identity(1,1) primary key,
+	  EquipoId int references Equipos(EquipoId),
+	  CuestionarioId int references Cuestionario(CuestionarioId),
+	  Puntos int
+	  )
+
+	  select * from Cuestionario

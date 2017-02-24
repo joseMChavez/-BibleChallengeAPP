@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuestionario.cs" />
     <Compile Include="Equipos.cs" />
     <Compile Include="MasterClass.cs" />
     <Compile Include="Participantes.cs" />
