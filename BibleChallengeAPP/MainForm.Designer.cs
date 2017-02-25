@@ -28,32 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.RegistrosMetroTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.ResultadosmetroTabPage = new MetroFramework.Controls.MetroTabPage();
-            this.VerResultadosButton = new MetroFramework.Controls.MetroButton();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.AJugarmetroTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroTabControl1.SuspendLayout();
             this.RegistrosMetroTabPage.SuspendLayout();
-            this.ResultadosmetroTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
             // 
             this.metroTabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.metroTabControl1.Controls.Add(this.RegistrosMetroTabPage);
-            this.metroTabControl1.Controls.Add(this.ResultadosmetroTabPage);
             this.metroTabControl1.Controls.Add(this.AJugarmetroTabPage);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.FontSize = MetroFramework.MetroTabControlSize.Tall;
+            this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.metroTabControl1.Location = new System.Drawing.Point(23, 60);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
@@ -67,38 +60,57 @@
             // 
             // RegistrosMetroTabPage
             // 
+            this.RegistrosMetroTabPage.Controls.Add(this.metroTile4);
             this.RegistrosMetroTabPage.Controls.Add(this.metroTile3);
             this.RegistrosMetroTabPage.Controls.Add(this.metroTile2);
             this.RegistrosMetroTabPage.Controls.Add(this.metroTile1);
+            this.RegistrosMetroTabPage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrosMetroTabPage.HorizontalScrollbarBarColor = true;
             this.RegistrosMetroTabPage.HorizontalScrollbarHighlightOnWheel = false;
             this.RegistrosMetroTabPage.HorizontalScrollbarSize = 10;
             this.RegistrosMetroTabPage.Location = new System.Drawing.Point(4, 47);
             this.RegistrosMetroTabPage.Name = "RegistrosMetroTabPage";
             this.RegistrosMetroTabPage.Size = new System.Drawing.Size(969, 422);
+            this.RegistrosMetroTabPage.Style = MetroFramework.MetroColorStyle.Black;
             this.RegistrosMetroTabPage.TabIndex = 0;
-            this.RegistrosMetroTabPage.Text = "Registros";
+            this.RegistrosMetroTabPage.Text = "Menu ";
+            this.RegistrosMetroTabPage.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RegistrosMetroTabPage.ToolTipText = "Menu Touch";
             this.RegistrosMetroTabPage.VerticalScrollbarBarColor = true;
             this.RegistrosMetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.RegistrosMetroTabPage.VerticalScrollbarSize = 5;
+            this.RegistrosMetroTabPage.VerticalScrollbarSize = 3;
+            // 
+            // metroTile4
+            // 
+            this.metroTile4.ActiveControl = null;
+            this.metroTile4.Location = new System.Drawing.Point(4, 254);
+            this.metroTile4.Name = "metroTile4";
+            this.metroTile4.Size = new System.Drawing.Size(258, 113);
+            this.metroTile4.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroTile4.TabIndex = 5;
+            this.metroTile4.Text = "Ver Resultados";
+            this.metroTile4.UseSelectable = true;
             // 
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
             this.metroTile3.BackColor = System.Drawing.SystemColors.Highlight;
-            this.metroTile3.Location = new System.Drawing.Point(122, 127);
+            this.metroTile3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile3.Location = new System.Drawing.Point(3, 3);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(140, 120);
-            this.metroTile3.Style = MetroFramework.MetroColorStyle.Teal;
+            this.metroTile3.Size = new System.Drawing.Size(259, 120);
+            this.metroTile3.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTile3.TabIndex = 4;
             this.metroTile3.Text = "Nuevos Retos";
             this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroTile3.UseSelectable = true;
+            this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
             this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.metroTile2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroTile2.Location = new System.Drawing.Point(3, 127);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(113, 120);
@@ -113,60 +125,18 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(3, 0);
+            this.metroTile1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile1.ForeColor = System.Drawing.Color.Black;
+            this.metroTile1.Location = new System.Drawing.Point(122, 127);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(259, 121);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTile1.Size = new System.Drawing.Size(140, 121);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroTile1.TabIndex = 2;
             this.metroTile1.Text = "Nuevo Participante";
             this.metroTile1.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
-            // 
-            // ResultadosmetroTabPage
-            // 
-            this.ResultadosmetroTabPage.Controls.Add(this.VerResultadosButton);
-            this.ResultadosmetroTabPage.Controls.Add(this.chart1);
-            this.ResultadosmetroTabPage.HorizontalScrollbarBarColor = true;
-            this.ResultadosmetroTabPage.HorizontalScrollbarHighlightOnWheel = false;
-            this.ResultadosmetroTabPage.HorizontalScrollbarSize = 10;
-            this.ResultadosmetroTabPage.Location = new System.Drawing.Point(4, 47);
-            this.ResultadosmetroTabPage.Name = "ResultadosmetroTabPage";
-            this.ResultadosmetroTabPage.Size = new System.Drawing.Size(969, 422);
-            this.ResultadosmetroTabPage.TabIndex = 2;
-            this.ResultadosmetroTabPage.Text = "Resultados";
-            this.ResultadosmetroTabPage.VerticalScrollbarBarColor = true;
-            this.ResultadosmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.ResultadosmetroTabPage.VerticalScrollbarSize = 5;
-            // 
-            // VerResultadosButton
-            // 
-            this.VerResultadosButton.Location = new System.Drawing.Point(51, 43);
-            this.VerResultadosButton.Name = "VerResultadosButton";
-            this.VerResultadosButton.Size = new System.Drawing.Size(93, 23);
-            this.VerResultadosButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.VerResultadosButton.TabIndex = 3;
-            this.VerResultadosButton.Text = "Ver Resultados";
-            this.VerResultadosButton.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.VerResultadosButton.UseSelectable = true;
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(272, 3);
-            this.chart1.Name = "chart1";
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(717, 404);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "Resultados";
             // 
             // AJugarmetroTabPage
             // 
@@ -177,10 +147,11 @@
             this.AJugarmetroTabPage.Name = "AJugarmetroTabPage";
             this.AJugarmetroTabPage.Size = new System.Drawing.Size(969, 422);
             this.AJugarmetroTabPage.TabIndex = 1;
-            this.AJugarmetroTabPage.Text = "A Jugar";
+            this.AJugarmetroTabPage.Text = "Competencia";
+            this.AJugarmetroTabPage.ToolTipText = "A Jugar";
             this.AJugarmetroTabPage.VerticalScrollbarBarColor = true;
             this.AJugarmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
-            this.AJugarmetroTabPage.VerticalScrollbarSize = 5;
+            this.AJugarmetroTabPage.VerticalScrollbarSize = 3;
             // 
             // MainForm
             // 
@@ -196,12 +167,9 @@
             this.Resizable = false;
             this.Text = "C.B.OasisSFM Beta";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.metroTabControl1.ResumeLayout(false);
             this.RegistrosMetroTabPage.ResumeLayout(false);
-            this.ResultadosmetroTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,9 +182,7 @@
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroTabPage AJugarmetroTabPage;
-        private MetroFramework.Controls.MetroTabPage ResultadosmetroTabPage;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private MetroFramework.Controls.MetroButton VerResultadosButton;
+        private MetroFramework.Controls.MetroTile metroTile4;
     }
 }
 

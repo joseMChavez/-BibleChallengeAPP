@@ -49,7 +49,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format("update Cuestionario set Preguntas='{0}',Repuesta='{1}',RepuestaMalaA='{2}',RepuestaMalaB='{3}',RepuestaMalaC='{4}',Tipo={5},Etapa={6} where CuestionarioId={7}", this.Pregunta, this.RepuestaBien, this.RepuestaMalaA, this.RepuestaMalaB, this.RepuestaMalaC, this.Tipo, this.Etapa,this.CuestionarioId));
+                return con.Ejecutar(string.Format("update Cuestionario set Pregunta='{0}',Repuesta='{1}',RepuestaMalaA='{2}',RepuestaMalaB='{3}',RepuestaMalaC='{4}',Tipo={5},Etapa={6} where CuestionarioId={7}", this.Pregunta, this.RepuestaBien, this.RepuestaMalaA, this.RepuestaMalaB, this.RepuestaMalaC, this.Tipo, this.Etapa,this.CuestionarioId));
             }
             catch (Exception e)
             {

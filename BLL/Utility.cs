@@ -102,13 +102,10 @@ namespace BLL
         // Estos metodos reciven un evento cuando se presiona una tecla en el textbox para Validarlos
         public static void TextBoxNuemericos(KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+            if (!char.IsControl(e.KeyChar) || !char.IsNumber(e.KeyChar))
             {
-                e.Handled = false;
-            }
-            else
                 e.Handled = true;
-
+            }
 
         }
 
@@ -132,17 +129,16 @@ namespace BLL
         }
         public static void TextBoxSoloTexto(KeyPressEventArgs e)
         {
-            if ((e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar == 33) || (e.KeyChar == 95) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165) || (e.KeyChar >= 129 && e.KeyChar <= 130))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
-                e.Handled = false;
-            }
-            else
                 e.Handled = true;
+            }
+            
         }
         // Este metodo en especial recibe un control con el fin de poder dar Focus a Cuarquier Componente de la clase Control.
         public static void Enter(KeyPressEventArgs e, Control control)
         {
-            if (e.KeyChar == 13)
+            if (e.KeyChar.Equals(13))
             {
                 control.Focus();
             }

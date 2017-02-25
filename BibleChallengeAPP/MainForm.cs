@@ -36,6 +36,7 @@ namespace BibleChallengeAPP
             splashSc.BackColor = Color.White;
             splashSc.ForeColor = Color.Aquamarine;
             splashSc.AppName = "C.B.OasisSFM 1.0.0";
+            
 
             //splashSc.BackgroundImage = Image.FromFile(@"C:\Users\jose\Desktop\Aplicada II\BibleChallengeAPP\icon\Iglesia.png");
             Application.Run(splashSc);
@@ -47,13 +48,20 @@ namespace BibleChallengeAPP
         {
 
             Form.rParticipantes rp = new Form.rParticipantes();
-            rp.Show();
+           
+            rp.Show(this);
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
             Form.rEquipos Eq = new Form.rEquipos();
-            Eq.Show();
+            Eq.Show(this);
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            Form.rCuestionario cues = new Form.rCuestionario();
+            cues.Show(this);
         }
     }
 }

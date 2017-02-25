@@ -86,6 +86,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\rCuestionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\rCuestionario.Designer.cs">
+      <DependentUpon>rCuestionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\rEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\rCuestionario.resx">
+      <DependentUpon>rCuestionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\rEquipos.resx">
       <DependentUpon>rEquipos.cs</DependentUpon>
     </EmbeddedResource>
