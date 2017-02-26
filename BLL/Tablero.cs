@@ -23,6 +23,17 @@ namespace BLL
             Puntos = 0;
             
         }
+
+        public void LimpiarPuntos(int equipo)
+        {
+            ConexionDb con = new ConexionDb();
+            try
+            {
+                con.Ejecutar(string.Format("update Tablero set Puntos=0 there EquipoId={0}", equipo));
+            }
+            catch (Exception ex) { throw ex; }
+
+        }
         public void AgregarPuntosAEquipo(int equipo,int cuestionario,int punto)
         {
             ConexionDb con = new ConexionDb();

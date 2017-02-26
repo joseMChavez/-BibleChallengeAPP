@@ -32,5 +32,5 @@ create Table Tablero(
 	  CuestionarioId int references Cuestionario(CuestionarioId),
 	  Puntos int
 	  )
-
+	  select * from Cuestionario where Tipo=0 and Etapa=1
 	  select * from Cuestionario

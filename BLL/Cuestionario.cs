@@ -57,6 +57,35 @@ namespace BLL
                 throw e;
             }
         }
+        public bool DesactivarPregunta(int id,int activo=0)
+        {
+            ConexionDb con = new ConexionDb();
+            try
+            {
+                return con.Ejecutar(string.Format("update Cuestionario set Tipo={0} where CuestionarioId={1}", activo, id));
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+        public bool VerificarActivos(int etapa)
+        {
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+            try
+            {
+                dt = con.ObtenerDatos("select * from Cuestionario where Tipo=0 and Etapa=" + etapa);
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
+        }
         public override bool Buscar(int IdBuscado)
         {
             DataTable dt = new DataTable();
