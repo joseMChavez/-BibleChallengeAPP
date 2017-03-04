@@ -94,7 +94,9 @@ namespace BibleChallengeAPP.Form
 
         private void Cancelarbutton_Click(object sender, EventArgs e)
         {
+            Utility.Limpiar(this);
             ActivarBotones(false);
+            DespuesConsultaBotones(false);
             Utility.ActivarTbx(this, false);
         }
 
@@ -111,15 +113,14 @@ namespace BibleChallengeAPP.Form
             Cuestionario cues = new Cuestionario();
             bool exito = false;
             Utility.Validar(PreguntaTextBox, errorProvider, "Campo Obligatorio!");
-            Utility.Validar(RepuestaBuenaTextBox, errorProvider, "Campo Obligatorio!");
-            Utility.Validar(MalaATextBox, errorProvider, "Campo Obligatorio!");
+           
             LlenarClase(cues);
 
             try
             {
                 if (Utility.ValidarTbx(IdTextBox).Equals(false))
                 {
-                    if (Utility.ValidarTbx(PreguntaTextBox) && Utility.ValidarTbx(RepuestaBuenaTextBox) && Utility.ValidarTbx(MalaATextBox))
+                    if (Utility.ValidarTbx(PreguntaTextBox))
                     {
                         exito = cues.Insertar();
                     }
@@ -127,7 +128,7 @@ namespace BibleChallengeAPP.Form
                 }
                 else
                 {
-                    if (Utility.ValidarTbx(PreguntaTextBox) && Utility.ValidarTbx(RepuestaBuenaTextBox) && Utility.ValidarTbx(MalaATextBox))
+                    if (Utility.ValidarTbx(PreguntaTextBox))
                     {
                         exito = cues.Editar();
                     }
@@ -136,7 +137,7 @@ namespace BibleChallengeAPP.Form
                 {
                     Utility.Limpiar(this);
                     Utility.ActivarTbx(this, false);
-                    Utility.MensajesDos(1, "Dios te bendiga! \nBien Hecho!");
+                    Utility.Mensajes(this,1, "Dios te bendiga! \nBien Hecho!");
                 }
             }
             catch (Exception ex)
@@ -167,7 +168,7 @@ namespace BibleChallengeAPP.Form
                         DespuesConsultaBotones(false);
                         ActivarBotones(false);
                         Utility.ActivarTbx(this, false);
-                        Utility.MensajesDos(1, "Se Elimino Corectamente!");
+                        Utility.Mensajes(this, 1, "Se Elimino Corectamente!");
                     }
                 }
             }
@@ -201,7 +202,7 @@ namespace BibleChallengeAPP.Form
                 }
                 else
                 {
-                    Utility.MensajesDos(1, "No existe!");
+                    Utility.Mensajes(this,1, "No existe!");
                     IdTextBox.Focus();
                 }
             }

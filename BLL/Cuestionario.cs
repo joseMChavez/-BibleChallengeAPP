@@ -31,6 +31,15 @@ namespace BLL
             Etapa = 0;
 
         }
+        public Cuestionario(string bien,string a,string b, string c)
+        {
+            
+            RepuestaBien = bien;
+            RepuestaMalaA = a;
+            RepuestaMalaB = b;
+            RepuestaMalaC = c;
+        
+        }
         public override bool Insertar()
         {
             ConexionDb con = new ConexionDb();
@@ -76,7 +85,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                dt = con.ObtenerDatos("select * from Cuestionario where Tipo=0 and Etapa=" + etapa);
+                dt = con.ObtenerDatos("select * from Cuestionario where Tipo=1 and Etapa=" + etapa);
                 
             }
             catch (Exception ex)
@@ -112,15 +121,58 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
+        public  bool BuscarRespuesta(int IdCuestionario,int etapa,string RepuestaBuscada)
+        {
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+           
+            try
+            {
+                dt = con.ObtenerDatos("select * from Cuestionario where CuestionarioId=" + IdCuestionario+" and Etapa="+etapa+"and Tipo=1");
+                if (dt.Rows.Count > 0)
+                {
+                    return RepuestaBuscada == dt.Rows[0]["Repuesta"].ToString();
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
 
-       
+                throw ex;
+            }
+            
+        }
+        public int BuscarId()
+        {
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+
+            try
+            {
+                dt = con.ObtenerDatos("select Top 1 * from Cuestionario where  Tipo=1 ");
+                if (dt.Rows.Count > 0)
+                {
+                    return (int)dt.Rows[0]["CuestionarioId"];
+                }
+                else
+                    return 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
 
         public override bool Eliminar()
         {
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format("delecte from Cuestionario where CuestionarioId={0}", this.CuestionarioId));
+                return con.Ejecutar(string.Format("Delete from Cuestionario where CuestionarioId={0}", this.CuestionarioId));
             }
             catch (Exception e)
             {

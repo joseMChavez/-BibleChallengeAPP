@@ -7,7 +7,7 @@
 	 Fecha varchar(20)
 	 
 )
-select * from Participantes
+drop table Participantes
 go
 
 Create table Equipos(
@@ -32,5 +32,8 @@ create Table Tablero(
 	  CuestionarioId int references Cuestionario(CuestionarioId),
 	  Puntos int
 	  )
-	  select * from Cuestionario where Tipo=0 and Etapa=1
-	  select * from Cuestionario
+	  select * from Tablero_view
+	  --create view Tablero_view as
+	  --select e.Descripcion as Equipos, SUM(t.Puntos) as Puntuacion from Tablero t inner join Equipos e on t.EquipoId=e.EquipoId group by e.Descripcion 
+
+	  select *  from Cuestionario where  Tipo=1

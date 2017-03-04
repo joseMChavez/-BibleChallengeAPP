@@ -82,7 +82,7 @@ namespace BibleChallengeAPP.Form
             Participantes part = new Participantes();
             bool exito = false;
             DialogResult res;
-            res = MessageBox.Show("¿Esta seguro que desea eliminar el participante " + NombreCTextBox4.Text + "?", "C.B.OasisSFM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            res =MetroFramework.MetroMessageBox.Show(this,"¿Esta seguro que desea eliminar el participante " + NombreCTextBox4.Text + "?", "C.B.OasisSFM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             try
             {
                 if (res == DialogResult.Yes)
@@ -99,7 +99,7 @@ namespace BibleChallengeAPP.Form
                         DespuesConsultaBotones(false);
                         ActivarBotones(false);
                         Utility.ActivarTbx(this, false);
-                        Utility.MensajesDos(1, "Se Elimino Corectamente!");
+                        Utility.Mensajes(this, 1, "Se Elimino Corectamente!");
                     }
                 }
             }
@@ -145,7 +145,7 @@ namespace BibleChallengeAPP.Form
                 {
                     Utility.Limpiar(this);
                     Utility.ActivarTbx(this, false);
-                    Utility.MensajesDos(1, "Dios te bendiga! \nBien Hecho!");
+                    Utility.Mensajes(this, 1, "Dios te bendiga! \nBien Hecho!");
                 }
             }
             catch (Exception ex)
@@ -201,7 +201,7 @@ namespace BibleChallengeAPP.Form
                 }
                 else
                 {
-                    Utility.MensajesDos(1, "No existe!");
+                    Utility.Mensajes(this, 1, "No existe!");
                     IdTextBox.Focus();
                 }
             }

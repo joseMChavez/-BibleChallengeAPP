@@ -118,6 +118,18 @@ namespace BLL
             else
                 e.Handled = true;
         }
+        public static string[] Aleatorio(string A, string B, string C="", string D="")
+        {
+            List<string> lista = new List<string>();
+            string[] array = new string[4];
+            lista.Add(A);
+            lista.Add(B);
+            lista.Add(C);
+            lista.Add(D);
+            lista.Sort();
+            array= lista.ToArray();
+            return array;
+        }
         public static void TextBoxEspecial(KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 44 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar == 33) || (e.KeyChar == 95) || (e.KeyChar >= 63 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
@@ -175,6 +187,18 @@ namespace BLL
         {
             return !string.IsNullOrWhiteSpace(tbUno.Text);
         }
-
+        public static bool ValidarRario(Control lugar)
+        {
+            bool ok = false;
+            foreach (Control item in lugar.Controls)
+            {
+                if (item is MetroRadioButton)
+                {
+                    ok= !string.IsNullOrEmpty(item.Text);
+                }
+                
+            }
+            return ok;
+        }
     }
 }

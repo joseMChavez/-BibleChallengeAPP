@@ -52,6 +52,7 @@ namespace BibleChallengeAPP.Form
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
+           
             Limpiar();
             ActivarBotones(true);
             Nuevobutton.Enabled = false;
@@ -88,7 +89,7 @@ namespace BibleChallengeAPP.Form
                 if (ok)
                 {
                     Limpiar();
-                    Utility.MensajesDos( 1, "Dios te Bendiga! \n Bien Hecho!");
+                    Utility.Mensajes(this, 1, "Dios te Bendiga! \n Bien Hecho!");
                 }
                    
             }
@@ -111,7 +112,7 @@ namespace BibleChallengeAPP.Form
             Equipos grupo = new Equipos();
             bool ok = false;
             DialogResult res;
-            res = MessageBox.Show( "¿Esta seguro que desea eliminar este el Equipo " + DesctextBox.Text + "?", "C.B.OasisSFM",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            res = MetroFramework.MetroMessageBox.Show(this ,"¿Esta seguro que desea eliminar este el Equipo " + DesctextBox.Text + "?", "C.B.OasisSFM",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             try
             {
                 LLenarClase(grupo);
