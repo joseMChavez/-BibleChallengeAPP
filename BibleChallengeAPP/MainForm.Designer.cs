@@ -67,7 +67,7 @@
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.metroTabControl1.Location = new System.Drawing.Point(23, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(977, 473);
             this.metroTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Blue;
@@ -204,7 +204,7 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(218, 43);
+            this.metroLabel1.Location = new System.Drawing.Point(169, 17);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(143, 19);
             this.metroLabel1.TabIndex = 36;
@@ -214,8 +214,10 @@
             // EtapaL
             // 
             this.EtapaL.AutoSize = true;
+            this.EtapaL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.EtapaL.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.EtapaL.Location = new System.Drawing.Point(789, 43);
+            this.EtapaL.ForeColor = System.Drawing.Color.Green;
+            this.EtapaL.Location = new System.Drawing.Point(785, 17);
             this.EtapaL.Name = "EtapaL";
             this.EtapaL.Size = new System.Drawing.Size(126, 19);
             this.EtapaL.TabIndex = 35;
@@ -225,42 +227,51 @@
             // CradioBtn
             // 
             this.CradioBtn.AutoSize = true;
-            this.CradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.CradioBtn.Location = new System.Drawing.Point(73, 271);
+            this.CradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.CradioBtn.Location = new System.Drawing.Point(76, 272);
             this.CradioBtn.Name = "CradioBtn";
-            this.CradioBtn.Size = new System.Drawing.Size(16, 0);
+            this.CradioBtn.Size = new System.Drawing.Size(39, 25);
             this.CradioBtn.TabIndex = 34;
+            this.CradioBtn.Text = "C";
             this.CradioBtn.UseSelectable = true;
+            this.CradioBtn.CheckedChanged += new System.EventHandler(this.CradioBtn_CheckedChanged);
             // 
             // DradioBtn
             // 
             this.DradioBtn.AutoSize = true;
-            this.DradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.DradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
             this.DradioBtn.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
-            this.DradioBtn.Location = new System.Drawing.Point(76, 292);
+            this.DradioBtn.Location = new System.Drawing.Point(76, 303);
             this.DradioBtn.Name = "DradioBtn";
-            this.DradioBtn.Size = new System.Drawing.Size(16, 0);
+            this.DradioBtn.Size = new System.Drawing.Size(40, 25);
             this.DradioBtn.TabIndex = 33;
+            this.DradioBtn.Text = "D";
             this.DradioBtn.UseSelectable = true;
+            this.DradioBtn.CheckedChanged += new System.EventHandler(this.DradioBtn_CheckedChanged);
             // 
             // AradioButton
             // 
             this.AradioButton.AutoSize = true;
-            this.AradioButton.Location = new System.Drawing.Point(76, 229);
+            this.AradioButton.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.AradioButton.Location = new System.Drawing.Point(76, 210);
             this.AradioButton.Name = "AradioButton";
-            this.AradioButton.Size = new System.Drawing.Size(16, 0);
+            this.AradioButton.Size = new System.Drawing.Size(40, 25);
             this.AradioButton.TabIndex = 32;
+            this.AradioButton.Text = "A";
             this.AradioButton.UseSelectable = true;
+            this.AradioButton.CheckedChanged += new System.EventHandler(this.AradioButton_CheckedChanged);
             // 
             // BradioBtn
             // 
             this.BradioBtn.AutoSize = true;
-            this.BradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.BradioBtn.Location = new System.Drawing.Point(76, 250);
+            this.BradioBtn.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.BradioBtn.Location = new System.Drawing.Point(76, 241);
             this.BradioBtn.Name = "BradioBtn";
-            this.BradioBtn.Size = new System.Drawing.Size(16, 0);
+            this.BradioBtn.Size = new System.Drawing.Size(38, 25);
             this.BradioBtn.TabIndex = 31;
+            this.BradioBtn.Text = "B";
             this.BradioBtn.UseSelectable = true;
+            this.BradioBtn.CheckedChanged += new System.EventHandler(this.BradioBtn_CheckedChanged);
             // 
             // IdTextBox
             // 
@@ -268,7 +279,7 @@
             // 
             // 
             this.IdTextBox.CustomButton.Image = null;
-            this.IdTextBox.CustomButton.Location = new System.Drawing.Point(62, 1);
+            this.IdTextBox.CustomButton.Location = new System.Drawing.Point(14, 1);
             this.IdTextBox.CustomButton.Name = "";
             this.IdTextBox.CustomButton.Size = new System.Drawing.Size(18, 21);
             this.IdTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -277,7 +288,7 @@
             this.IdTextBox.CustomButton.UseSelectable = true;
             this.IdTextBox.CustomButton.Visible = false;
             this.IdTextBox.Lines = new string[0];
-            this.IdTextBox.Location = new System.Drawing.Point(64, 43);
+            this.IdTextBox.Location = new System.Drawing.Point(76, 17);
             this.IdTextBox.MaxLength = 32767;
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.PasswordChar = '\0';
@@ -287,7 +298,7 @@
             this.IdTextBox.SelectionLength = 0;
             this.IdTextBox.SelectionStart = 0;
             this.IdTextBox.ShortcutsEnabled = true;
-            this.IdTextBox.Size = new System.Drawing.Size(94, 23);
+            this.IdTextBox.Size = new System.Drawing.Size(38, 23);
             this.IdTextBox.TabIndex = 30;
             this.IdTextBox.UseSelectable = true;
             this.IdTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -302,11 +313,11 @@
             this.Aceptarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Aceptarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Aceptarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Aceptarbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Aceptarbutton.ForeColor = System.Drawing.Color.Black;
             this.Aceptarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1453541179_ok_sign1;
-            this.Aceptarbutton.Location = new System.Drawing.Point(409, 355);
+            this.Aceptarbutton.Location = new System.Drawing.Point(444, 221);
             this.Aceptarbutton.Name = "Aceptarbutton";
-            this.Aceptarbutton.Size = new System.Drawing.Size(122, 54);
+            this.Aceptarbutton.Size = new System.Drawing.Size(62, 54);
             this.Aceptarbutton.TabIndex = 29;
             this.Aceptarbutton.Text = "Aceptar";
             this.Aceptarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -318,7 +329,7 @@
             // 
             this.EquiposComboBox.FormattingEnabled = true;
             this.EquiposComboBox.ItemHeight = 23;
-            this.EquiposComboBox.Location = new System.Drawing.Point(367, 38);
+            this.EquiposComboBox.Location = new System.Drawing.Point(318, 11);
             this.EquiposComboBox.Name = "EquiposComboBox";
             this.EquiposComboBox.Size = new System.Drawing.Size(416, 29);
             this.EquiposComboBox.TabIndex = 6;
@@ -329,7 +340,7 @@
             this.pregunta.AutoSize = true;
             this.pregunta.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.pregunta.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.pregunta.Location = new System.Drawing.Point(76, 91);
+            this.pregunta.Location = new System.Drawing.Point(76, 49);
             this.pregunta.Name = "pregunta";
             this.pregunta.Size = new System.Drawing.Size(20, 25);
             this.pregunta.Style = MetroFramework.MetroColorStyle.Black;
@@ -338,15 +349,14 @@
             // 
             // NextButton
             // 
+            this.NextButton.BackgroundImage = global::BibleChallengeAPP.Properties.Resources._1488776652_arrow_right;
             this.NextButton.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.NextButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.NextButton.Location = new System.Drawing.Point(176, 38);
+            this.NextButton.Location = new System.Drawing.Point(120, 3);
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(36, 29);
-            this.NextButton.Style = MetroFramework.MetroColorStyle.White;
+            this.NextButton.Size = new System.Drawing.Size(43, 42);
+            this.NextButton.Style = MetroFramework.MetroColorStyle.Green;
             this.NextButton.TabIndex = 3;
-            this.NextButton.Text = ">|";
-            this.NextButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.NextButton.UseSelectable = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
