@@ -60,8 +60,8 @@ namespace BibleChallengeAPP
             IdTextBox.Text = c.CuestionarioId.ToString();
             pregunta.Text = c.Pregunta;
             string[] array = Utility.Aleatorio(c.RepuestaBien, c.RepuestaMalaA, c.RepuestaMalaB, c.RepuestaMalaC);
-            AradioButton.Text = array[0];
-            BradioBtn.Text = array[1];
+            AradioButton.Text = array[1];
+            BradioBtn.Text = array[0];
             CradioBtn.Text = array[2];
             DradioBtn.Text = array[3];
             if (c.Etapa == 1 && c.VerificarActivos(1))
@@ -90,22 +90,33 @@ namespace BibleChallengeAPP
         {
             Cuestionario cues = new Cuestionario();
             Tablero tab = new Tablero();
-            bool exito = false;
-
+           
+   
             int equipo = Utility.ConvierteEntero(EquiposComboBox.SelectedValue.ToString());
             int id = Utility.ConvierteEntero(IdTextBox.Text);
-            exito = cues.BuscarRespuesta(id, etapas, item.Text);
-            if (exito)
+            
+            if (contador == 2)
             {
-                Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
-                tab.AgregarPuntosAEquipo(equipo, id, 1000);
+                MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cues.DesactivarPregunta(id);
+                Limpiar();
                 contador = 0;
             }
             else
             {
-                Utility.Mensajes(this, 2, "Incorrecto");
-                contador += 1;
+                if (cues.BuscarRespuesta(id, etapas, item.Text))
+                {
+                    Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
+                    tab.AgregarPuntosAEquipo(equipo, id, 1000);
+                    cues.DesactivarPregunta(id);
+                    Limpiar();
+                    contador = 0;
+                }
+                else
+                {
+                    Utility.Mensajes(this, 2, "Incorrecto");
+                    contador += 1;
+                }
             }
         }
         private void metroTile1_Click(object sender, EventArgs e)
@@ -131,13 +142,15 @@ namespace BibleChallengeAPP
         private void MainForm_Load(object sender, EventArgs e)
         {
             Cuestionario cue = new Cuestionario();
-            IdTextBox.Text = cue.BuscarId().ToString();
-
+           
+            MinLabel.Text = cue.BuscarId().ToString();
+            MaxLabel.Text = cue.BuscarIdMayor().ToString();
             Refrescar();
             LLenarCombo();
         }
         void Refrescar()
         {
+
             chart1.Series["Equipos"].XValueMember = "Equipos";
 
             chart1.Series["Equipos"].YValueMembers = "Puntuacion";
@@ -156,13 +169,37 @@ namespace BibleChallengeAPP
             chart1.DataSource = Utility.ListadoGenerico("Tablero_view", "1=1", "Puntuacion desc");
             chart1.DataBind();
         }
+        void Limpiar()
+        {
+            IdTextBox.Clear();
+            pregunta.Text = "";
+            AradioButton.Text = "";
+            BradioBtn.Text = "";
+            CradioBtn.Text = "";
+            DradioBtn.Text = "";
+            IdTextBox.Focus();
+        }
         private void NextButton_Click(object sender, EventArgs e)
         {
             Cuestionario cue = new Cuestionario();
-            int id = cue.BuscarId();
-            int valor = id;
-            IdTextBox.Text = valor.ToString();
-           
+            //int id = cue.BuscarId();
+            //int valor = id;
+            //IdTextBox.Text = valor.ToString();
+            MinLabel.Text = cue.BuscarId().ToString();
+            MaxLabel.Text = cue.BuscarIdMayor().ToString();
+            if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+            {
+                int idD = Utility.ConvierteEntero(IdTextBox.Text);
+                if (cue.BuscarPregunta(idD))
+                {
+                    LlenarCampos(cue);
+                }
+                else
+                {
+                    Utility.Mensajes(this, 1, "Esta Pregunta ya fue Realizada!");
+                    Limpiar();
+                }
+            }
 
         }
 
@@ -178,6 +215,8 @@ namespace BibleChallengeAPP
             {
                 MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cues.DesactivarPregunta(id);
+                Limpiar();
+                contador = 0;
             }
             else
             {
@@ -187,6 +226,7 @@ namespace BibleChallengeAPP
                     Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
                     tab.AgregarPuntosAEquipo(equipo, id, 1000);
                     cues.DesactivarPregunta(id);
+                    Limpiar();
                     contador = 0;
                 }
                 else
@@ -200,19 +240,8 @@ namespace BibleChallengeAPP
 
         private void IdTextBox_TextChanged(object sender, EventArgs e)
         {
-            Cuestionario cue = new Cuestionario();
-            if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
-            {
-                int idD = Utility.ConvierteEntero(IdTextBox.Text);
-                if (cue.Buscar(idD))
-                {
-                    LlenarCampos(cue);
-                }
-            }
-            else
-            {
-                Utility.Mensajes(this, 1, "Fin del Juego!");
-            }
+            
+           
         }
 
         private void metroTile4_Click(object sender, EventArgs e)
@@ -223,74 +252,43 @@ namespace BibleChallengeAPP
 
         private void freshButton_Click(object sender, EventArgs e)
         {
-
+            Cuestionario cue = new Cuestionario();
+            MinLabel.Text = cue.BuscarId().ToString();
+            MaxLabel.Text = cue.BuscarIdMayor().ToString();
             Refrescar();
+            Limpiar();
             LLenarCombo();
         }
 
         private void AradioButton_CheckedChanged(object sender, EventArgs e)
         {
 
-            Cuestionario c = new Cuestionario();
-            int id = Utility.ConvierteEntero(IdTextBox.Text);
-            if (contador == 2)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                c.DesactivarPregunta(id);
-            }
-            else
-            {
                 ValidarRepuesta(AradioButton);
-            }
 
         }
 
         private void BradioBtn_CheckedChanged(object sender, EventArgs e)
         {
 
-            Cuestionario c = new Cuestionario();
-            int id = Utility.ConvierteEntero(IdTextBox.Text);
-            if (contador == 2)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                c.DesactivarPregunta(id);
-            }
-            else
-            {
                 ValidarRepuesta(BradioBtn);
-            }
+            
         }
 
         private void CradioBtn_CheckedChanged(object sender, EventArgs e)
         {
-
-            Cuestionario c = new Cuestionario();
-            int id = Utility.ConvierteEntero(IdTextBox.Text);
-            if (contador == 2)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                c.DesactivarPregunta(id);
-            }
-            else
-            {
-                ValidarRepuesta(CradioBtn);
-            }
+                ValidarRepuesta(CradioBtn);  
         }
 
         private void DradioBtn_CheckedChanged(object sender, EventArgs e)
         {
 
-            Cuestionario c = new Cuestionario();
-            int id = Utility.ConvierteEntero(IdTextBox.Text);
-            if (contador == 2)
-            {
-                MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                c.DesactivarPregunta(id);
-            }
-            else
-            {
                 ValidarRepuesta(DradioBtn);
-            }
+            
+        }
+
+        private void IdTextBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

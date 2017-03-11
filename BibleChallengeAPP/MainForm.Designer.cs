@@ -36,8 +36,6 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.AJugarmetroTabPage = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.EtapaL = new MetroFramework.Controls.MetroLabel();
@@ -46,11 +44,17 @@
             this.AradioButton = new MetroFramework.Controls.MetroRadioButton();
             this.BradioBtn = new MetroFramework.Controls.MetroRadioButton();
             this.IdTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.Aceptarbutton = new System.Windows.Forms.Button();
             this.EquiposComboBox = new MetroFramework.Controls.MetroComboBox();
             this.pregunta = new MetroFramework.Controls.MetroLabel();
-            this.NextButton = new MetroFramework.Controls.MetroButton();
             this.freshButton = new MetroFramework.Controls.MetroButton();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.MaxLabel = new MetroFramework.Controls.MetroLabel();
+            this.MinLabel = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.Aceptarbutton = new System.Windows.Forms.Button();
+            this.NextButton = new MetroFramework.Controls.MetroButton();
             this.metroTabControl1.SuspendLayout();
             this.RegistrosMetroTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -142,40 +146,12 @@
             this.metroTile3.UseSelectable = true;
             this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
-            // metroTile2
-            // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.metroTile2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile2.Location = new System.Drawing.Point(3, 127);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(113, 120);
-            this.metroTile2.Style = MetroFramework.MetroColorStyle.Lime;
-            this.metroTile2.TabIndex = 3;
-            this.metroTile2.Text = "Nuevo Equipo";
-            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile2.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
-            this.metroTile2.UseSelectable = true;
-            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile1.ForeColor = System.Drawing.Color.Black;
-            this.metroTile1.Location = new System.Drawing.Point(122, 127);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(140, 121);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroTile1.TabIndex = 2;
-            this.metroTile1.Text = "Nuevo Participante";
-            this.metroTile1.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
-            // 
             // AJugarmetroTabPage
             // 
+            this.AJugarmetroTabPage.Controls.Add(this.metroLabel5);
+            this.AJugarmetroTabPage.Controls.Add(this.MinLabel);
+            this.AJugarmetroTabPage.Controls.Add(this.MaxLabel);
+            this.AJugarmetroTabPage.Controls.Add(this.metroLabel2);
             this.AJugarmetroTabPage.Controls.Add(this.metroLabel1);
             this.AJugarmetroTabPage.Controls.Add(this.EtapaL);
             this.AJugarmetroTabPage.Controls.Add(this.CradioBtn);
@@ -217,7 +193,7 @@
             this.EtapaL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.EtapaL.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.EtapaL.ForeColor = System.Drawing.Color.Green;
-            this.EtapaL.Location = new System.Drawing.Point(785, 17);
+            this.EtapaL.Location = new System.Drawing.Point(741, 36);
             this.EtapaL.Name = "EtapaL";
             this.EtapaL.Size = new System.Drawing.Size(126, 19);
             this.EtapaL.TabIndex = 35;
@@ -279,9 +255,9 @@
             // 
             // 
             this.IdTextBox.CustomButton.Image = null;
-            this.IdTextBox.CustomButton.Location = new System.Drawing.Point(14, 1);
+            this.IdTextBox.CustomButton.Location = new System.Drawing.Point(27, 1);
             this.IdTextBox.CustomButton.Name = "";
-            this.IdTextBox.CustomButton.Size = new System.Drawing.Size(18, 21);
+            this.IdTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.IdTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.IdTextBox.CustomButton.TabIndex = 1;
             this.IdTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -292,38 +268,18 @@
             this.IdTextBox.MaxLength = 32767;
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.PasswordChar = '\0';
-            this.IdTextBox.ReadOnly = true;
             this.IdTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.IdTextBox.SelectedText = "";
             this.IdTextBox.SelectionLength = 0;
             this.IdTextBox.SelectionStart = 0;
             this.IdTextBox.ShortcutsEnabled = true;
-            this.IdTextBox.Size = new System.Drawing.Size(38, 23);
+            this.IdTextBox.Size = new System.Drawing.Size(49, 23);
             this.IdTextBox.TabIndex = 30;
             this.IdTextBox.UseSelectable = true;
             this.IdTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.IdTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.IdTextBox.TextChanged += new System.EventHandler(this.IdTextBox_TextChanged);
-            // 
-            // Aceptarbutton
-            // 
-            this.Aceptarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Aceptarbutton.FlatAppearance.BorderSize = 0;
-            this.Aceptarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Aceptarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Aceptarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Aceptarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Aceptarbutton.ForeColor = System.Drawing.Color.Black;
-            this.Aceptarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1453541179_ok_sign1;
-            this.Aceptarbutton.Location = new System.Drawing.Point(444, 221);
-            this.Aceptarbutton.Name = "Aceptarbutton";
-            this.Aceptarbutton.Size = new System.Drawing.Size(62, 54);
-            this.Aceptarbutton.TabIndex = 29;
-            this.Aceptarbutton.Text = "Aceptar";
-            this.Aceptarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Aceptarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Aceptarbutton.UseVisualStyleBackColor = true;
-            this.Aceptarbutton.Click += new System.EventHandler(this.Aceptarbutton_Click);
+            this.IdTextBox.Click += new System.EventHandler(this.IdTextBox_Click);
             // 
             // EquiposComboBox
             // 
@@ -347,19 +303,6 @@
             this.pregunta.TabIndex = 4;
             this.pregunta.Text = "*";
             // 
-            // NextButton
-            // 
-            this.NextButton.BackgroundImage = global::BibleChallengeAPP.Properties.Resources._1488776652_arrow_right;
-            this.NextButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.NextButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.NextButton.Location = new System.Drawing.Point(120, 3);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(43, 42);
-            this.NextButton.Style = MetroFramework.MetroColorStyle.Green;
-            this.NextButton.TabIndex = 3;
-            this.NextButton.UseSelectable = true;
-            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
-            // 
             // freshButton
             // 
             this.freshButton.Location = new System.Drawing.Point(241, 31);
@@ -370,6 +313,112 @@
             this.freshButton.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.freshButton.UseSelectable = true;
             this.freshButton.Click += new System.EventHandler(this.freshButton_Click);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(741, 17);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel2.TabIndex = 37;
+            this.metroLabel2.Text = "Min:";
+            // 
+            // MaxLabel
+            // 
+            this.MaxLabel.AutoSize = true;
+            this.MaxLabel.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.MaxLabel.Location = new System.Drawing.Point(852, 17);
+            this.MaxLabel.Name = "MaxLabel";
+            this.MaxLabel.Size = new System.Drawing.Size(17, 19);
+            this.MaxLabel.TabIndex = 38;
+            this.MaxLabel.Text = "..";
+            // 
+            // MinLabel
+            // 
+            this.MinLabel.AutoSize = true;
+            this.MinLabel.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.MinLabel.Location = new System.Drawing.Point(781, 17);
+            this.MinLabel.Name = "MinLabel";
+            this.MinLabel.Size = new System.Drawing.Size(17, 19);
+            this.MinLabel.TabIndex = 39;
+            this.MinLabel.Text = "..";
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(813, 17);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(34, 19);
+            this.metroLabel5.TabIndex = 40;
+            this.metroLabel5.Text = "Max";
+            // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.metroTile2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile2.Location = new System.Drawing.Point(3, 127);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.Size = new System.Drawing.Size(113, 120);
+            this.metroTile2.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile2.TabIndex = 3;
+            this.metroTile2.Text = "Nuevo Equipo";
+            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile2.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
+            this.metroTile2.UseSelectable = true;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroTile1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroTile1.ForeColor = System.Drawing.Color.Black;
+            this.metroTile1.Location = new System.Drawing.Point(122, 127);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(140, 121);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroTile1.TabIndex = 2;
+            this.metroTile1.Text = "Nuevo Participante";
+            this.metroTile1.TileImage = global::BibleChallengeAPP.Properties.Resources._1486243192_add_user;
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // Aceptarbutton
+            // 
+            this.Aceptarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Aceptarbutton.FlatAppearance.BorderSize = 0;
+            this.Aceptarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Aceptarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Aceptarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Aceptarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Aceptarbutton.ForeColor = System.Drawing.Color.Black;
+            this.Aceptarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1453541179_ok_sign1;
+            this.Aceptarbutton.Location = new System.Drawing.Point(444, 221);
+            this.Aceptarbutton.Name = "Aceptarbutton";
+            this.Aceptarbutton.Size = new System.Drawing.Size(62, 54);
+            this.Aceptarbutton.TabIndex = 29;
+            this.Aceptarbutton.Text = "Aceptar";
+            this.Aceptarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Aceptarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Aceptarbutton.UseVisualStyleBackColor = true;
+            this.Aceptarbutton.Click += new System.EventHandler(this.Aceptarbutton_Click);
+            // 
+            // NextButton
+            // 
+            this.NextButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NextButton.BackgroundImage = global::BibleChallengeAPP.Properties.Resources._1489223499_Button_Next;
+            this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.NextButton.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.NextButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.NextButton.Highlight = true;
+            this.NextButton.Location = new System.Drawing.Point(131, 11);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(32, 34);
+            this.NextButton.Style = MetroFramework.MetroColorStyle.Green;
+            this.NextButton.TabIndex = 3;
+            this.NextButton.UseSelectable = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // MainForm
             // 
@@ -419,6 +468,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private MetroFramework.Controls.MetroButton freshButton;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel MinLabel;
+        private MetroFramework.Controls.MetroLabel MaxLabel;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }
 

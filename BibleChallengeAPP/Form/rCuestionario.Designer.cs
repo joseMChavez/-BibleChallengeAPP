@@ -126,6 +126,7 @@
             this.PreguntaTextBox.UseSelectable = true;
             this.PreguntaTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.PreguntaTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.PreguntaTextBox.Click += new System.EventHandler(this.PreguntaTextBox_Click);
             this.PreguntaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PreguntaTextBox_KeyPress);
             // 
             // metroLabel2

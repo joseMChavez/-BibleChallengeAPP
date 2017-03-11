@@ -217,7 +217,7 @@ namespace BibleChallengeAPP.Form
 
         private void PreguntaTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utility.TextBoxEspecial(e);
+           
             Utility.Enter(e, RepuestaBuenaTextBox);
         }
 
@@ -248,6 +248,11 @@ namespace BibleChallengeAPP.Form
         private void IdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
           
+        }
+
+        private void PreguntaTextBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

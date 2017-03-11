@@ -132,12 +132,11 @@ namespace BLL
         }
         public static void TextBoxEspecial(KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 44 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 32) || (e.KeyChar == 33) || (e.KeyChar == 95) || (e.KeyChar >= 63 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 165))
+            if (!char.IsPunctuation(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar))
             {
-                e.Handled = false;
-            }
-            else
                 e.Handled = true;
+            }
+
         }
         public static void TextBoxSoloTexto(KeyPressEventArgs e)
         {

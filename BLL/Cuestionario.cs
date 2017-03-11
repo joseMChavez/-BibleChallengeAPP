@@ -121,6 +121,32 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
+        public  bool BuscarPregunta(int IdBuscado)
+        {
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+            try
+            {
+                dt = con.ObtenerDatos("select * from Cuestionario where Tipo=1 and CuestionarioId=" + IdBuscado);
+                if (dt.Rows.Count > 0)
+                {
+                    this.CuestionarioId = (int)dt.Rows[0]["CuestionarioId"];
+                    this.Pregunta = dt.Rows[0]["Pregunta"].ToString();
+                    this.RepuestaBien = dt.Rows[0]["Repuesta"].ToString();
+                    this.RepuestaMalaA = dt.Rows[0]["RepuestaMalaA"].ToString();
+                    this.RepuestaMalaB = dt.Rows[0]["RepuestaMalaB"].ToString();
+                    this.RepuestaMalaC = dt.Rows[0]["RepuestaMalaC"].ToString();
+                    this.Tipo = (int)dt.Rows[0]["Tipo"];
+                    this.Etapa = (int)dt.Rows[0]["Etapa"];
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
+        }
         public  bool BuscarRespuesta(int IdCuestionario,int etapa,string RepuestaBuscada)
         {
             DataTable dt = new DataTable();
@@ -143,6 +169,25 @@ namespace BLL
             }
             
         }
+        public int BuscarIdMayor()
+        {
+            DataTable dt = new DataTable();
+            ConexionDb con = new ConexionDb();
+
+            try
+            {
+                dt = con.ObtenerDatos("select * from Cuestionario where  Tipo=1 ");
+                
+                return dt.Rows.Count+1;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         public int BuscarId()
         {
             DataTable dt = new DataTable();
@@ -165,8 +210,6 @@ namespace BLL
             }
 
         }
-
-
         public override bool Eliminar()
         {
             ConexionDb con = new ConexionDb();

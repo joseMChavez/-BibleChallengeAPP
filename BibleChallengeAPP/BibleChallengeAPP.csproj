@@ -181,6 +181,7 @@
     <None Include="Resources\1486720435_icon-79-document-cancel.png" />
     <None Include="Resources\1486720471_icon-136-document-edit.png" />
     <Content Include="Resources\1488776652_arrow_right.png" />
+    <None Include="Resources\1489223499_Button_Next.png" />
     <Content Include="Resources\Entypo-license.txt" />
     <None Include="Resources\undo-32.png" />
     <None Include="Resources\paste-next-32.png" />
