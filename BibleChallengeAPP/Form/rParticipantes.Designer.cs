@@ -422,6 +422,7 @@
             this.Name = "rParticipantes";
             this.Resizable = false;
             this.ShowIcon = false;
+            this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "Registro de Participantes";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
             this.TransparencyKey = System.Drawing.Color.AliceBlue;

@@ -53,7 +53,7 @@ namespace BLL
             ConexionDb con = new ConexionDb();
             try
             {
-                return con.Ejecutar(string.Format(" Delete from Equipos where EquipoId = {1}", this.EquiposId));
+                return con.Ejecutar(string.Format("Delete from Tablero where EquipoId = {0};Delete from Participantes where EquipoId = {0}; Delete from Equipos where EquipoId = {0}", this.EquiposId));
             }
             catch (Exception e)
             {

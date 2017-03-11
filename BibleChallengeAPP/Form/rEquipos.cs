@@ -34,7 +34,7 @@ namespace BibleChallengeAPP.Form
             eq.EquiposId = Utility.ConvierteEntero(IdtextBox.Text);
             eq.Descripcion = DesctextBox.Text;
         }
-        private void LLenarCampos(Equipos eq)
+        private void LlenarCampos(Equipos eq)
         {
             IdtextBox.Text = eq.EquiposId.ToString();
             DesctextBox.Text = eq.Descripcion;
@@ -115,8 +115,8 @@ namespace BibleChallengeAPP.Form
             res = MetroFramework.MetroMessageBox.Show(this ,"¿Esta seguro que desea eliminar este el Equipo " + DesctextBox.Text + "?", "C.B.OasisSFM",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             try
             {
-                LLenarClase(grupo);
-                if (string.IsNullOrWhiteSpace(IdtextBox.Text))
+                grupo.EquiposId = Utility.ConvierteEntero(IdtextBox.Text);
+                if (!string.IsNullOrWhiteSpace(IdtextBox.Text))
                 {
                     if (res == DialogResult.Yes)
                     {
@@ -134,6 +134,40 @@ namespace BibleChallengeAPP.Form
             {
 
                 Utility.Mensajes(this, 3, "Comunicate con Jose Chavez. \n" + ex.Message);
+            }
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            Equipos eq = new Equipos();
+            bool exito = false;
+            int Id = 0;
+            try 
+            {
+                if (String.IsNullOrWhiteSpace(IdtextBox.Text).Equals(false))
+                {
+                    Id = Utility.ConvierteEntero(IdtextBox.Text);
+                    exito = eq.Buscar(Id);
+                }
+
+                if (exito)
+                {
+                    LlenarCampos(eq);
+                    DespuesConsultaBotones(true);
+                    ActivarBotones(false);
+                    Utility.ActivarTbx(this, false);
+
+                }
+                else
+                {
+                    Utility.Mensajes(this, 1, "No existe!");
+                    IdtextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Utility.Mensajes(this, 3, ex.Message);
             }
         }
     }

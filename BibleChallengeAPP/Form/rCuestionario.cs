@@ -136,7 +136,8 @@ namespace BibleChallengeAPP.Form
                 if (exito)
                 {
                     Utility.Limpiar(this);
-                    Utility.ActivarTbx(this, false);
+                    IdTextBox.Focus();
+                    Utility.ActivarTbx(this, true);
                     Utility.Mensajes(this,1, "Dios te bendiga! \nBien Hecho!");
                 }
             }

@@ -163,6 +163,26 @@ namespace BibleChallengeAPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1489264288_shield_and_swords {
+            get {
+                object obj = ResourceManager.GetObject("1489264288_shield and swords", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1489265072_view_refresh {
+            get {
+                object obj = ResourceManager.GetObject("1489265072_view-refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paste_next_32 {
             get {
                 object obj = ResourceManager.GetObject("paste-next-32", resourceCulture);

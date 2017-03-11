@@ -29,82 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Modificarbutton = new System.Windows.Forms.Button();
-            this.Eliminarbutton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rEquipos));
             this.IdtextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DesctextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.EquiposErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Cancelarbutton = new System.Windows.Forms.Button();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
-            this.EquiposErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Modificarbutton = new System.Windows.Forms.Button();
+            this.Nuevobutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EquiposErrorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Nuevobutton
-            // 
-            this.Nuevobutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Nuevobutton.FlatAppearance.BorderSize = 0;
-            this.Nuevobutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Nuevobutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Nuevobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Nuevobutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nuevobutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Nuevobutton.Image = global::BibleChallengeAPP.Properties.Resources._1486720435_icon_79_document_cancel;
-            this.Nuevobutton.Location = new System.Drawing.Point(7, 130);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(60, 54);
-            this.Nuevobutton.TabIndex = 0;
-            this.Nuevobutton.Text = "Nuevo";
-            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
-            // 
-            // Modificarbutton
-            // 
-            this.Modificarbutton.Enabled = false;
-            this.Modificarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Modificarbutton.FlatAppearance.BorderSize = 0;
-            this.Modificarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Modificarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Modificarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Modificarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Modificarbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Modificarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1486720471_icon_136_document_edit;
-            this.Modificarbutton.Location = new System.Drawing.Point(241, 130);
-            this.Modificarbutton.Name = "Modificarbutton";
-            this.Modificarbutton.Size = new System.Drawing.Size(69, 54);
-            this.Modificarbutton.TabIndex = 1;
-            this.Modificarbutton.Text = "Modificar";
-            this.Modificarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Modificarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Modificarbutton.UseVisualStyleBackColor = true;
-            this.Modificarbutton.Click += new System.EventHandler(this.Modificarbutton_Click);
-            // 
-            // Eliminarbutton
-            // 
-            this.Eliminarbutton.Enabled = false;
-            this.Eliminarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Eliminarbutton.FlatAppearance.BorderSize = 0;
-            this.Eliminarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.Eliminarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.Eliminarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Eliminarbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Eliminarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1452899178_trash;
-            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(327, 130);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(60, 54);
-            this.Eliminarbutton.TabIndex = 3;
-            this.Eliminarbutton.Text = "Eliminar";
-            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
-            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // IdtextBox
             // 
@@ -139,6 +77,10 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Nombre:";
             // 
+            // EquiposErrorProvider
+            // 
+            this.EquiposErrorProvider.ContainerControl = this;
+            // 
             // Buscarbutton
             // 
             this.Buscarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -157,6 +99,7 @@
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Cancelarbutton
             // 
@@ -179,6 +122,28 @@
             this.Cancelarbutton.UseVisualStyleBackColor = true;
             this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
             // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.Enabled = false;
+            this.Eliminarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Eliminarbutton.FlatAppearance.BorderSize = 0;
+            this.Eliminarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.Eliminarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.Eliminarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminarbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Eliminarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1452899178_trash;
+            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Eliminarbutton.Location = new System.Drawing.Point(327, 130);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(60, 54);
+            this.Eliminarbutton.TabIndex = 3;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
             // Guardarbutton
             // 
             this.Guardarbutton.Enabled = false;
@@ -200,9 +165,46 @@
             this.Guardarbutton.UseVisualStyleBackColor = true;
             this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // EquiposErrorProvider
+            // Modificarbutton
             // 
-            this.EquiposErrorProvider.ContainerControl = this;
+            this.Modificarbutton.Enabled = false;
+            this.Modificarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Modificarbutton.FlatAppearance.BorderSize = 0;
+            this.Modificarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Modificarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Modificarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Modificarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Modificarbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Modificarbutton.Image = global::BibleChallengeAPP.Properties.Resources._1486720471_icon_136_document_edit;
+            this.Modificarbutton.Location = new System.Drawing.Point(241, 130);
+            this.Modificarbutton.Name = "Modificarbutton";
+            this.Modificarbutton.Size = new System.Drawing.Size(69, 54);
+            this.Modificarbutton.TabIndex = 1;
+            this.Modificarbutton.Text = "Modificar";
+            this.Modificarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Modificarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Modificarbutton.UseVisualStyleBackColor = true;
+            this.Modificarbutton.Click += new System.EventHandler(this.Modificarbutton_Click);
+            // 
+            // Nuevobutton
+            // 
+            this.Nuevobutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Nuevobutton.FlatAppearance.BorderSize = 0;
+            this.Nuevobutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Nuevobutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Nuevobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Nuevobutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nuevobutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Nuevobutton.Image = global::BibleChallengeAPP.Properties.Resources._1486720435_icon_79_document_cancel;
+            this.Nuevobutton.Location = new System.Drawing.Point(7, 130);
+            this.Nuevobutton.Name = "Nuevobutton";
+            this.Nuevobutton.Size = new System.Drawing.Size(60, 54);
+            this.Nuevobutton.TabIndex = 0;
+            this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // rEquipos
             // 
@@ -219,9 +221,11 @@
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Modificarbutton);
             this.Controls.Add(this.Nuevobutton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "rEquipos";
             this.Resizable = false;
+            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Registro de Equipos";
             this.Load += new System.EventHandler(this.rEquipos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EquiposErrorProvider)).EndInit();

@@ -94,6 +94,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consulta\cPreguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta\cPreguntas.Designer.cs">
+      <DependentUpon>cPreguntas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consulta\Resultados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Consulta\cPreguntas.resx">
+      <DependentUpon>cPreguntas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consulta\Resultados.resx">
       <DependentUpon>Resultados.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +191,8 @@
     <None Include="Resources\1486720471_icon-136-document-edit.png" />
     <Content Include="Resources\1488776652_arrow_right.png" />
     <None Include="Resources\1489223499_Button_Next.png" />
+    <None Include="Resources\1489264288_shield and swords.png" />
+    <None Include="Resources\1489265072_view-refresh.png" />
     <Content Include="Resources\Entypo-license.txt" />
     <None Include="Resources\undo-32.png" />
     <None Include="Resources\paste-next-32.png" />

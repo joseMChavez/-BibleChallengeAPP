@@ -36,4 +36,4 @@ create Table Tablero(
 	  --create view Tablero_view as
 	  --select e.Descripcion as Equipos, SUM(t.Puntos) as Puntuacion from Tablero t inner join Equipos e on t.EquipoId=e.EquipoId group by e.Descripcion 
 
-	  select COUNT(CuestionarioId)  from Cuestionario where Tipo=1
+	  select @@IDENTITY AS [@@IDENTITY]  from Cuestionario 

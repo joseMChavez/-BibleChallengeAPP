@@ -178,7 +178,7 @@ namespace BLL
             {
                 dt = con.ObtenerDatos("select * from Cuestionario where  Tipo=1 ");
                 
-                return dt.Rows.Count+1;
+                return Utility.ConvierteEntero(con.ObtenerValor("select Max(CuestionarioId)  from Cuestionario where  Tipo=1 ; select @@IDENTITY").ToString());
             }
             catch (Exception ex)
             {

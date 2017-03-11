@@ -22,19 +22,19 @@ namespace BibleChallengeAPP
         public MainForm()
         {
             contador = 0;
-            Thread t = new Thread(new ThreadStart(SplashUno));
-            t.Start();
+            //Thread t = new Thread(new ThreadStart(SplashUno));
+            //t.Start();
             etapas = 0;
             InitializeComponent();
 
-            string s = string.Empty;
+            //string s = string.Empty;
 
-            for (int i = 0; i < 110000; i++)
-            {
-                s += i.ToString();
-            }
+            //for (int i = 0; i < 110000; i++)
+            //{
+            //    s += i.ToString();
+            //}
 
-            t.Abort();
+            //t.Abort();
         }
 
         void SplashUno()
@@ -289,6 +289,17 @@ namespace BibleChallengeAPP
         private void IdTextBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTile5_Click(object sender, EventArgs e)
+        {
+            Consulta.cPreguntas p = new Consulta.cPreguntas();
+            p.Show(this);
         }
     }
 }
