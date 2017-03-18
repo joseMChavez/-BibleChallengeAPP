@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Reporting.WinForms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,19 @@ namespace BLL
 {
     public static class Utility
     {
+        public static void ConfigurarReporte(ReportViewer rv, string ruta, string DataSets, DataTable listado)
+        {
+           
+            rv.LocalReport.DataSources.Clear();
+            rv.ProcessingMode = ProcessingMode.Local;
+
+
+            rv.LocalReport.ReportPath = ruta;
+            ReportDataSource sourse = new ReportDataSource(DataSets, listado);
+
+            rv.LocalReport.DataSources.Add(sourse);
+            rv.LocalReport.Refresh();
+        }
         public static DataTable ListadoGenerico(string View, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
@@ -102,7 +116,7 @@ namespace BLL
         // Estos metodos reciven un evento cuando se presiona una tecla en el textbox para Validarlos
         public static void TextBoxNuemericos(KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) || !char.IsNumber(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
             }

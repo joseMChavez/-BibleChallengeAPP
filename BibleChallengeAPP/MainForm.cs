@@ -26,7 +26,7 @@ namespace BibleChallengeAPP
             //t.Start();
             etapas = 0;
             InitializeComponent();
-
+            RepuestaLb.Visible = false;
             //string s = string.Empty;
 
             //for (int i = 0; i < 110000; i++)
@@ -48,22 +48,28 @@ namespace BibleChallengeAPP
             Application.Run(splashSc);
 
         }
-        private void LLenarCombo()
+        void LLenarCombo()
         {
 
             EquiposComboBox.DataSource = Utility.ListadoGenerico("Equipos", "1=1", "EquipoId");
             EquiposComboBox.ValueMember = "EquipoId";
             EquiposComboBox.DisplayMember = "Descripcion";
         }
-        public void LlenarCampos(Cuestionario c)
+        void LlenarCampos(Cuestionario c)
         {
             IdTextBox.Text = c.CuestionarioId.ToString();
+            RepuestaLb.ForeColor = Color.Green;
             pregunta.Text = c.Pregunta;
-            string[] array = Utility.Aleatorio(c.RepuestaBien, c.RepuestaMalaA, c.RepuestaMalaB, c.RepuestaMalaC);
-            AradioButton.Text = array[1];
-            BradioBtn.Text = array[0];
-            CradioBtn.Text = array[2];
-            DradioBtn.Text = array[3];
+            RepuestaLb.Text = "Repuesta Correcta: \n"+c.RepuestaBien;
+
+            if (!string.IsNullOrWhiteSpace(c.RepuestaBien) && !string.IsNullOrWhiteSpace(c.RepuestaMalaA))
+            {
+                string[] array = Utility.Aleatorio(c.RepuestaBien, c.RepuestaMalaA, c.RepuestaMalaB, c.RepuestaMalaC);
+                AradioButton.Text = array[1];
+                BradioBtn.Text = array[0];
+                CradioBtn.Text = array[2];
+                DradioBtn.Text = array[3];
+            }
             if (c.Etapa == 1 && c.VerificarActivos(1))
             {
                 EtapaL.Text = "Regular";
@@ -79,13 +85,66 @@ namespace BibleChallengeAPP
                 EtapaL.Text = "Final";
                 etapas = c.Etapa;
             }
-            if (string.IsNullOrWhiteSpace(c.RepuestaBien) && string.IsNullOrWhiteSpace(c.RepuestaMalaA) && string.IsNullOrWhiteSpace(c.RepuestaMalaB) && string.IsNullOrWhiteSpace(c.RepuestaMalaC))
+            if (string.IsNullOrWhiteSpace(c.RepuestaMalaA) && string.IsNullOrWhiteSpace(c.RepuestaMalaB) && string.IsNullOrWhiteSpace(c.RepuestaMalaC))
             {
                 Aceptarbutton.Visible = true;
             }
             else
                 Aceptarbutton.Visible = false;
         }
+        void Refrescar()
+        {
+
+            chart1.Series["Equipos"].XValueMember = "Equipos";
+
+            chart1.Series["Equipos"].YValueMembers = "Puntuacion";
+            if (etapas == 1)
+            {
+                chart1.Series["Equipos"].Color = Color.Green;
+            }
+            else if (etapas == 2)
+            {
+                chart1.Series["Equipos"].Color = Color.Yellow;
+            }
+            else if (etapas == 3)
+            {
+                chart1.Series["Equipos"].Color = Color.Red;
+            }
+            chart1.DataSource = Utility.ListadoGenerico("Tablero_view", "1=1", "Puntuacion desc");
+            chart1.DataBind();
+        }
+        void Limpiar()
+        {
+            IdTextBox.Clear();
+            pregunta.Text = "";
+            AradioButton.Text = "";
+            BradioBtn.Text = "";
+            CradioBtn.Text = "";
+            DradioBtn.Text = "";
+            RepuestaLb.Text = "";
+            Aceptarbutton.Visible = false;
+            IdTextBox.Focus();
+        }
+        void Buscar(Cuestionario cue)
+        {
+
+            MinLabel.Text = cue.BuscarId().ToString();
+            MaxLabel.Text = cue.BuscarIdMayor().ToString();
+            if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+            {
+                int idD = Utility.ConvierteEntero(IdTextBox.Text);
+                if (cue.BuscarPregunta(idD))
+                {
+                    LlenarCampos(cue);
+                }
+                else
+                {
+                    Utility.Mensajes(this, 1, "Esta Pregunta ya fue Realizada!");
+                    Limpiar();
+                }
+            }
+        }
+
         public void ValidarRepuesta(MetroRadioButton item)
         {
             Cuestionario cues = new Cuestionario();
@@ -119,6 +178,7 @@ namespace BibleChallengeAPP
                 }
             }
         }
+
         private void metroTile1_Click(object sender, EventArgs e)
         {
 
@@ -146,60 +206,26 @@ namespace BibleChallengeAPP
             MinLabel.Text = cue.BuscarId().ToString();
             MaxLabel.Text = cue.BuscarIdMayor().ToString();
             Refrescar();
+            Limpiar();
             LLenarCombo();
         }
-        void Refrescar()
-        {
-
-            chart1.Series["Equipos"].XValueMember = "Equipos";
-
-            chart1.Series["Equipos"].YValueMembers = "Puntuacion";
-            if (etapas == 1)
-            {
-                chart1.Series["Equipos"].Color = Color.Green;
-            }
-            else if (etapas == 2)
-            {
-                chart1.Series["Equipos"].Color = Color.Yellow;
-            }
-            else if (etapas == 3)
-            {
-                chart1.Series["Equipos"].Color = Color.Red;
-            }
-            chart1.DataSource = Utility.ListadoGenerico("Tablero_view", "1=1", "Puntuacion desc");
-            chart1.DataBind();
-        }
-        void Limpiar()
-        {
-            IdTextBox.Clear();
-            pregunta.Text = "";
-            AradioButton.Text = "";
-            BradioBtn.Text = "";
-            CradioBtn.Text = "";
-            DradioBtn.Text = "";
-            IdTextBox.Focus();
-        }
+        
         private void NextButton_Click(object sender, EventArgs e)
         {
+            RepuestaLb.Visible = false;
             Cuestionario cue = new Cuestionario();
-            //int id = cue.BuscarId();
-            //int valor = id;
-            //IdTextBox.Text = valor.ToString();
-            MinLabel.Text = cue.BuscarId().ToString();
-            MaxLabel.Text = cue.BuscarIdMayor().ToString();
-            if (!string.IsNullOrWhiteSpace(IdTextBox.Text))
+            int id = cue.BuscarId();
+            int valor = id;
+            IdTextBox.Text = valor.ToString();
+            try
             {
-                int idD = Utility.ConvierteEntero(IdTextBox.Text);
-                if (cue.BuscarPregunta(idD))
-                {
-                    LlenarCampos(cue);
-                }
-                else
-                {
-                    Utility.Mensajes(this, 1, "Esta Pregunta ya fue Realizada!");
-                    Limpiar();
-                }
+                Buscar(cue);
             }
+            catch (Exception ex)
+            {
+                Utility.Mensajes(this, 2, "Habla con Jose \n"+ex.Message);  
+            }
+            
 
         }
 
@@ -226,13 +252,16 @@ namespace BibleChallengeAPP
                     Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
                     tab.AgregarPuntosAEquipo(equipo, id, 1000);
                     cues.DesactivarPregunta(id);
-                    Limpiar();
+                    RepuestaLb.Visible = true;
                     contador = 0;
                 }
                 else
                 {
                     Utility.Mensajes(this, 2, "Incorrecto");
-                    contador += 1;
+                    cues.DesactivarPregunta(id);
+                    Aceptarbutton.Visible = false;
+                    RepuestaLb.Visible = true;
+                    contador = 0;
                 }
             }
 
@@ -300,6 +329,22 @@ namespace BibleChallengeAPP
         {
             Consulta.cPreguntas p = new Consulta.cPreguntas();
             p.Show(this);
+        }
+
+        private void IdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Cuestionario cue = new Cuestionario();
+            Utility.TextBoxNuemericos(e);
+            if (e.KeyChar== (int)Keys.Enter)
+            {
+                Buscar(cue);
+                
+            }
+        }
+
+        private void IdTextBox_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

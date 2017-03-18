@@ -173,12 +173,13 @@ namespace BLL
         {
             DataTable dt = new DataTable();
             ConexionDb con = new ConexionDb();
-
+            int mayor= Utility.ConvierteEntero(con.ObtenerValor("select Max(CuestionarioId)  from Cuestionario where  Tipo=1 ; select @@IDENTITY").ToString());
             try
             {
-                dt = con.ObtenerDatos("select * from Cuestionario where  Tipo=1 ");
-                
-                return Utility.ConvierteEntero(con.ObtenerValor("select Max(CuestionarioId)  from Cuestionario where  Tipo=1 ; select @@IDENTITY").ToString());
+                if (mayor>0)
+                    return mayor;
+                else
+                    return 0;    
             }
             catch (Exception ex)
             {
@@ -193,13 +194,11 @@ namespace BLL
             DataTable dt = new DataTable();
             ConexionDb con = new ConexionDb();
 
+            int menor = Utility.ConvierteEntero(con.ObtenerValor("select Min(CuestionarioId)  from Cuestionario where  Tipo=1 ; select @@IDENTITY").ToString());
             try
             {
-                dt = con.ObtenerDatos("select Top 1 * from Cuestionario where  Tipo=1 ");
-                if (dt.Rows.Count > 0)
-                {
-                    return (int)dt.Rows[0]["CuestionarioId"];
-                }
+                if (menor > 0)
+                    return menor;
                 else
                     return 0;
             }
