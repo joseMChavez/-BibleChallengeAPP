@@ -16,9 +16,8 @@ namespace BibleChallengeAPP
 {
     public partial class MainForm : MetroForm
     {
-        int etapas;
-        int contador;
-        
+        int etapas, contador, min = 1, seg = 30;
+        bool Visibles = false;
         public MainForm()
         {
             contador = 0;
@@ -27,6 +26,7 @@ namespace BibleChallengeAPP
             etapas = 0;
             InitializeComponent();
             RepuestaLb.Visible = false;
+            Eliminarbutton.Visible = false;
             //string s = string.Empty;
 
             //for (int i = 0; i < 110000; i++)
@@ -60,7 +60,7 @@ namespace BibleChallengeAPP
             IdTextBox.Text = c.CuestionarioId.ToString();
             RepuestaLb.ForeColor = Color.Green;
             pregunta.Text = c.Pregunta;
-            RepuestaLb.Text = "Repuesta Correcta: \n"+c.RepuestaBien;
+            RepuestaLb.Text = "Repuesta Correcta: \n" + c.RepuestaBien;
 
             if (!string.IsNullOrWhiteSpace(c.RepuestaBien) && !string.IsNullOrWhiteSpace(c.RepuestaMalaA))
             {
@@ -88,9 +88,15 @@ namespace BibleChallengeAPP
             if (string.IsNullOrWhiteSpace(c.RepuestaMalaA) && string.IsNullOrWhiteSpace(c.RepuestaMalaB) && string.IsNullOrWhiteSpace(c.RepuestaMalaC))
             {
                 Aceptarbutton.Visible = true;
+                Eliminarbutton.Visible = true;
+                Visibles = true;
             }
             else
+            {
                 Aceptarbutton.Visible = false;
+                Eliminarbutton.Visible = false;
+                Visibles = false;
+            }
         }
         void Refrescar()
         {
@@ -135,6 +141,7 @@ namespace BibleChallengeAPP
                 int idD = Utility.ConvierteEntero(IdTextBox.Text);
                 if (cue.BuscarPregunta(idD))
                 {
+                    RepuestaLb.Visible = false;
                     LlenarCampos(cue);
                 }
                 else
@@ -149,15 +156,15 @@ namespace BibleChallengeAPP
         {
             Cuestionario cues = new Cuestionario();
             Tablero tab = new Tablero();
-           
-   
+
+
             int equipo = Utility.ConvierteEntero(EquiposComboBox.SelectedValue.ToString());
             int id = Utility.ConvierteEntero(IdTextBox.Text);
-            
+
             if (contador == 2)
             {
                 MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cues.DesactivarPregunta(id);
+                Cuestionario.DesactivarPregunta(id);
                 Limpiar();
                 contador = 0;
             }
@@ -167,7 +174,7 @@ namespace BibleChallengeAPP
                 {
                     Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
                     tab.AgregarPuntosAEquipo(equipo, id, 1000);
-                    cues.DesactivarPregunta(id);
+                    Cuestionario.DesactivarPregunta(id);
                     Limpiar();
                     contador = 0;
                 }
@@ -202,45 +209,53 @@ namespace BibleChallengeAPP
         private void MainForm_Load(object sender, EventArgs e)
         {
             Cuestionario cue = new Cuestionario();
-           
+
             MinLabel.Text = cue.BuscarId().ToString();
             MaxLabel.Text = cue.BuscarIdMayor().ToString();
             Refrescar();
             Limpiar();
             LLenarCombo();
         }
-        
+
         private void NextButton_Click(object sender, EventArgs e)
         {
-            RepuestaLb.Visible = false;
+            min = 1;
+            seg = 30;
+            RepuestaLb.Visible = true;
             Cuestionario cue = new Cuestionario();
             int id = cue.BuscarId();
             int valor = id;
             IdTextBox.Text = valor.ToString();
             try
             {
+                Cronotimer.Start();
+                Cronoslabel.Visible = true;
+                Cronoslabel.ForeColor = Color.Green;
                 Buscar(cue);
             }
             catch (Exception ex)
             {
-                Utility.Mensajes(this, 2, "Habla con Jose \n"+ex.Message);  
+                Utility.Mensajes(this, 2, "Habla con Jose \n" + ex.Message);
             }
-            
+
 
         }
-
-        private void Aceptarbutton_Click(object sender, EventArgs e)
+        void Aceptar()
         {
-            Cuestionario cues = new Cuestionario();
+           
             Tablero tab = new Tablero();
-          
+            Cronoslabel.Text = "00:00";
+            Cronoslabel.Visible = false;
+            min = 1;
+            seg = 30;
+
             DialogResult res;
             int equipo = Utility.ConvierteEntero(EquiposComboBox.SelectedValue.ToString());
             int id = Utility.ConvierteEntero(IdTextBox.Text);
             if (contador == 2)
             {
                 MetroFramework.MetroMessageBox.Show(this, "se ha excedido el Limite de fallo en Repuesta!", "C.B.OasisSFM", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cues.DesactivarPregunta(id);
+                Cuestionario.DesactivarPregunta(id);
                 Limpiar();
                 contador = 0;
             }
@@ -251,26 +266,32 @@ namespace BibleChallengeAPP
                 {
                     Utility.Mensajes(this, 1, "Respondieron Bien Equipo " + EquiposComboBox.Text);
                     tab.AgregarPuntosAEquipo(equipo, id, 1000);
-                    cues.DesactivarPregunta(id);
+                    Cuestionario.DesactivarPregunta(id);
                     RepuestaLb.Visible = true;
                     contador = 0;
                 }
                 else
                 {
                     Utility.Mensajes(this, 2, "Incorrecto");
-                    cues.DesactivarPregunta(id);
+                    Cuestionario.DesactivarPregunta(id);
                     Aceptarbutton.Visible = false;
+                    Eliminarbutton.Visible = false;
+                    Visibles = false;
                     RepuestaLb.Visible = true;
                     contador = 0;
                 }
             }
 
         }
+        private void Aceptarbutton_Click(object sender, EventArgs e)
+        {
+            Aceptar();
+        }
 
         private void IdTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
         private void metroTile4_Click(object sender, EventArgs e)
@@ -286,33 +307,39 @@ namespace BibleChallengeAPP
             MaxLabel.Text = cue.BuscarIdMayor().ToString();
             Refrescar();
             Limpiar();
+            Cronotimer.Stop();
+            
+            min = 1;
+            seg = 30;
+            Cronoslabel.Text = "00:00";
+            Cronoslabel.Visible = false;
             LLenarCombo();
         }
 
         private void AradioButton_CheckedChanged(object sender, EventArgs e)
         {
 
-                ValidarRepuesta(AradioButton);
+            ValidarRepuesta(AradioButton);
 
         }
 
         private void BradioBtn_CheckedChanged(object sender, EventArgs e)
         {
 
-                ValidarRepuesta(BradioBtn);
-            
+            ValidarRepuesta(BradioBtn);
+
         }
 
         private void CradioBtn_CheckedChanged(object sender, EventArgs e)
         {
-                ValidarRepuesta(CradioBtn);  
+            ValidarRepuesta(CradioBtn);
         }
 
         private void DradioBtn_CheckedChanged(object sender, EventArgs e)
         {
 
-                ValidarRepuesta(DradioBtn);
-            
+            ValidarRepuesta(DradioBtn);
+
         }
 
         private void IdTextBox_Click(object sender, EventArgs e)
@@ -325,6 +352,68 @@ namespace BibleChallengeAPP
 
         }
 
+        private void Cronotimer_Tick(object sender, EventArgs e)
+        {
+
+            seg -= 1;
+
+            string minutos = min.ToString();
+            string segundos = seg.ToString();
+
+            if (min < 10)
+            {
+                minutos = "0" + min.ToString();
+            }
+            if (min < 10)
+            {
+                segundos = "0" + seg.ToString();
+            }
+
+            if (seg == 0 && min > 0)
+            {
+                min -= 1;
+                seg = 59;
+            }
+            
+            if (seg == 0 && min == 0)
+            {
+                if (Visibles)
+                {
+                    Cronotimer.Stop();
+                    Cronoslabel.ForeColor = Color.Red;
+                    Aceptar();
+                }
+                else
+                {
+                    Cronotimer.Stop();
+                    Utility.Mensajes(this, 2, "Incorrecto");
+                    Cuestionario.DesactivarPregunta(Utility.ConvierteEntero(IdTextBox.Text));
+                    Aceptarbutton.Visible = false;
+                    Eliminarbutton.Visible = false;
+                    Visibles = false;
+                    RepuestaLb.Visible = true;
+                    contador = 0;
+                }
+                
+            }
+            
+            Cronoslabel.Text = minutos + ":" + seg;
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            Cronotimer.Stop();
+            Cronoslabel.Text = "00:00";
+            min = 1;
+            seg = 30;
+
+            Cronoslabel.Visible = false;
+            int id = Utility.ConvierteEntero(IdTextBox.Text);
+            Cuestionario.DesactivarPregunta(id);
+            Utility.Mensajes(this, 1, "Se a Eliminado del Listado!\n Tienen otra Oportumidad Equipo " + EquiposComboBox.Text);
+        }
+
         private void metroTile5_Click(object sender, EventArgs e)
         {
             Consulta.cPreguntas p = new Consulta.cPreguntas();
@@ -335,16 +424,21 @@ namespace BibleChallengeAPP
         {
             Cuestionario cue = new Cuestionario();
             Utility.TextBoxNuemericos(e);
-            if (e.KeyChar== (int)Keys.Enter)
+            if (e.KeyChar == (int)Keys.Enter)
             {
                 Buscar(cue);
-                
+                Cronotimer.Start();
+                min = 1;
+                seg = 30;
+
+                Cronoslabel.ForeColor = Color.Green;
+                Cronoslabel.Visible = true;
             }
         }
 
         private void IdTextBox_Enter(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

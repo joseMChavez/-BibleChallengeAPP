@@ -35,5 +35,8 @@ create Table Tablero(
 	  select * from Tablero_view
 	  --create view Tablero_view as
 	  --select e.Descripcion as Equipos, SUM(t.Puntos) as Puntuacion from Tablero t inner join Equipos e on t.EquipoId=e.EquipoId group by e.Descripcion 
-
-	  select @@IDENTITY AS [@@IDENTITY]  from Cuestionario 
+	  --ALter view Preguntas_view as
+	  --select CuestionarioId As Numero, Pregunta,Repuesta,Estado =case WHEN Tipo =1 then 'No Realizada' else 'Realizada'  end from Cuestionario
+	  --insert into Tablero(EquipoId,CuestionarioId,Puntos) values(1,1,3000)
+	  --insert into Tablero(EquipoId,CuestionarioId,Puntos) values(2,2,3000)
+	  --insert into Tablero(EquipoId,CuestionarioId,Puntos) values(3,3,1000)

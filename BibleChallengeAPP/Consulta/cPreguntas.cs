@@ -19,7 +19,7 @@ namespace BibleChallengeAPP.Consulta
         {
             InitializeComponent();
         }
-       void Mostrar(Cuestionario cues)
+       string Mostrar(Cuestionario cues)
         {
             string filtro = "1=1";
             
@@ -31,7 +31,7 @@ namespace BibleChallengeAPP.Consulta
                 switch (select)
                 {
                     case 0:
-                        filtro = "CuestionarioId "+filtrado; 
+                        filtro = "Numero"+filtrado; 
                         break;
                     case 1:
                         filtro = "Pregunta" + filtrado;
@@ -48,16 +48,27 @@ namespace BibleChallengeAPP.Consulta
             {
                 if (Activos.Checked==true)
                 {
-                    filtro = "Tipo=1";
+                    filtro = "Estado='No Realizada'";
                 }
             }
-            PreguntasGrid.DataSource = cues.Listado("CuestionarioId as Id,Pregunta,Repuesta,Etapa,Tipo as Activo", filtro, "");
+            PreguntasGrid.DataSource = Utility.ListadoGenerico("Preguntas_view", filtro, "");
             TotalTextBox.Text = PreguntasGrid.RowCount.ToString();
+            return filtro;
         }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             Cuestionario Cuest = new Cuestionario();
             Mostrar(Cuest);    
+        }
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            Reportes rep = new Reportes();
+            Cuestionario c = new Cuestionario();
+            rep.Ruta = @"\Users\jose\Desktop\Aplicada II\BibleChallengeAPP\BibleChallengeAPP\Consulta\PreguntasReport.rdlc";
+            rep.DataSetReporte = "preguntas";
+            rep.Listado= Utility.ListadoGenerico("Preguntas_view",Mostrar(c), "");
+            rep.ShowDialog();
         }
     }
 }

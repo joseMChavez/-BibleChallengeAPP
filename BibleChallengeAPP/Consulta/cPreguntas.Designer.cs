@@ -38,8 +38,9 @@
             this.FiltroTextBox = new System.Windows.Forms.TextBox();
             this.TotalTextBox = new System.Windows.Forms.TextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.Buscarbutton = new System.Windows.Forms.Button();
             this.Activos = new MetroFramework.Controls.MetroCheckBox();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.Buscarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PreguntasGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +107,7 @@
             this.FiltroComboBox.FormattingEnabled = true;
             this.FiltroComboBox.ItemHeight = 23;
             this.FiltroComboBox.Items.AddRange(new object[] {
-            "Id",
+            "Numero",
             "Pregunta",
             "Repuesta"});
             this.FiltroComboBox.Location = new System.Drawing.Point(137, 65);
@@ -140,6 +141,38 @@
             this.metroLabel2.TabIndex = 13;
             this.metroLabel2.Text = "Total";
             // 
+            // Activos
+            // 
+            this.Activos.AutoSize = true;
+            this.Activos.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.Activos.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
+            this.Activos.Location = new System.Drawing.Point(137, 101);
+            this.Activos.Name = "Activos";
+            this.Activos.Size = new System.Drawing.Size(91, 25);
+            this.Activos.TabIndex = 14;
+            this.Activos.Text = "Activos";
+            this.Activos.UseSelectable = true;
+            // 
+            // PrintButton
+            // 
+            this.PrintButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.PrintButton.FlatAppearance.BorderSize = 0;
+            this.PrintButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.PrintButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.PrintButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PrintButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintButton.ForeColor = System.Drawing.Color.Black;
+            this.PrintButton.Image = global::BibleChallengeAPP.Properties.Resources._1489865324_Print;
+            this.PrintButton.Location = new System.Drawing.Point(572, 400);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(72, 47);
+            this.PrintButton.TabIndex = 15;
+            this.PrintButton.Text = "Imprimir";
+            this.PrintButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.PrintButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
+            // 
             // Buscarbutton
             // 
             this.Buscarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -160,23 +193,12 @@
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // Activos
-            // 
-            this.Activos.AutoSize = true;
-            this.Activos.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.Activos.FontWeight = MetroFramework.MetroCheckBoxWeight.Bold;
-            this.Activos.Location = new System.Drawing.Point(137, 101);
-            this.Activos.Name = "Activos";
-            this.Activos.Size = new System.Drawing.Size(91, 25);
-            this.Activos.TabIndex = 14;
-            this.Activos.Text = "Activos";
-            this.Activos.UseSelectable = true;
-            // 
             // cPreguntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 458);
+            this.Controls.Add(this.PrintButton);
             this.Controls.Add(this.Activos);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.TotalTextBox);
@@ -206,5 +228,6 @@
         private System.Windows.Forms.TextBox TotalTextBox;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroCheckBox Activos;
+        private System.Windows.Forms.Button PrintButton;
     }
 }

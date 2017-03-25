@@ -41,17 +41,17 @@
             this.MalaBTextBox = new MetroFramework.Controls.MetroTextBox();
             this.MalaCTextBox = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.ActivarCheck = new MetroFramework.Controls.MetroCheckBox();
+            this.RegularRbt = new MetroFramework.Controls.MetroRadioButton();
+            this.FinalRbtn = new MetroFramework.Controls.MetroRadioButton();
+            this.SemiFinaRbtn = new MetroFramework.Controls.MetroRadioButton();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Cancelarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Modificarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
-            this.ActivarCheck = new MetroFramework.Controls.MetroCheckBox();
-            this.RegularRbt = new MetroFramework.Controls.MetroRadioButton();
-            this.FinalRbtn = new MetroFramework.Controls.MetroRadioButton();
-            this.SemiFinaRbtn = new MetroFramework.Controls.MetroRadioButton();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,9 +145,9 @@
             // 
             // 
             this.RepuestaBuenaTextBox.CustomButton.Image = null;
-            this.RepuestaBuenaTextBox.CustomButton.Location = new System.Drawing.Point(597, 1);
+            this.RepuestaBuenaTextBox.CustomButton.Location = new System.Drawing.Point(553, 2);
             this.RepuestaBuenaTextBox.CustomButton.Name = "";
-            this.RepuestaBuenaTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.RepuestaBuenaTextBox.CustomButton.Size = new System.Drawing.Size(63, 63);
             this.RepuestaBuenaTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.RepuestaBuenaTextBox.CustomButton.TabIndex = 1;
             this.RepuestaBuenaTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -155,8 +155,9 @@
             this.RepuestaBuenaTextBox.CustomButton.Visible = false;
             this.RepuestaBuenaTextBox.ForeColor = System.Drawing.Color.LightGreen;
             this.RepuestaBuenaTextBox.Lines = new string[0];
-            this.RepuestaBuenaTextBox.Location = new System.Drawing.Point(124, 230);
+            this.RepuestaBuenaTextBox.Location = new System.Drawing.Point(124, 215);
             this.RepuestaBuenaTextBox.MaxLength = 32767;
+            this.RepuestaBuenaTextBox.Multiline = true;
             this.RepuestaBuenaTextBox.Name = "RepuestaBuenaTextBox";
             this.RepuestaBuenaTextBox.PasswordChar = '\0';
             this.RepuestaBuenaTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -164,7 +165,7 @@
             this.RepuestaBuenaTextBox.SelectionLength = 0;
             this.RepuestaBuenaTextBox.SelectionStart = 0;
             this.RepuestaBuenaTextBox.ShortcutsEnabled = true;
-            this.RepuestaBuenaTextBox.Size = new System.Drawing.Size(619, 23);
+            this.RepuestaBuenaTextBox.Size = new System.Drawing.Size(619, 68);
             this.RepuestaBuenaTextBox.Style = MetroFramework.MetroColorStyle.Green;
             this.RepuestaBuenaTextBox.TabIndex = 4;
             this.RepuestaBuenaTextBox.UseSelectable = true;
@@ -176,7 +177,7 @@
             // 
             this.reslabel.AutoSize = true;
             this.reslabel.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.reslabel.Location = new System.Drawing.Point(40, 230);
+            this.reslabel.Location = new System.Drawing.Point(35, 215);
             this.reslabel.Name = "reslabel";
             this.reslabel.Size = new System.Drawing.Size(74, 19);
             this.reslabel.TabIndex = 5;
@@ -311,6 +312,50 @@
             this.metroLabel5.TabIndex = 11;
             this.metroLabel5.Text = "C:";
             // 
+            // ActivarCheck
+            // 
+            this.ActivarCheck.AutoSize = true;
+            this.ActivarCheck.Location = new System.Drawing.Point(280, 92);
+            this.ActivarCheck.Name = "ActivarCheck";
+            this.ActivarCheck.Size = new System.Drawing.Size(60, 15);
+            this.ActivarCheck.TabIndex = 22;
+            this.ActivarCheck.Text = "Activar";
+            this.ActivarCheck.UseSelectable = true;
+            // 
+            // RegularRbt
+            // 
+            this.RegularRbt.AutoSize = true;
+            this.RegularRbt.Location = new System.Drawing.Point(473, 92);
+            this.RegularRbt.Name = "RegularRbt";
+            this.RegularRbt.Size = new System.Drawing.Size(63, 15);
+            this.RegularRbt.TabIndex = 23;
+            this.RegularRbt.Text = "Regular";
+            this.RegularRbt.UseSelectable = true;
+            // 
+            // FinalRbtn
+            // 
+            this.FinalRbtn.AutoSize = true;
+            this.FinalRbtn.Location = new System.Drawing.Point(632, 92);
+            this.FinalRbtn.Name = "FinalRbtn";
+            this.FinalRbtn.Size = new System.Drawing.Size(48, 15);
+            this.FinalRbtn.TabIndex = 24;
+            this.FinalRbtn.Text = "Final";
+            this.FinalRbtn.UseSelectable = true;
+            // 
+            // SemiFinaRbtn
+            // 
+            this.SemiFinaRbtn.AutoSize = true;
+            this.SemiFinaRbtn.Location = new System.Drawing.Point(542, 92);
+            this.SemiFinaRbtn.Name = "SemiFinaRbtn";
+            this.SemiFinaRbtn.Size = new System.Drawing.Size(74, 15);
+            this.SemiFinaRbtn.TabIndex = 25;
+            this.SemiFinaRbtn.Text = "SemiFinal";
+            this.SemiFinaRbtn.UseSelectable = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // Buscarbutton
             // 
             this.Buscarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -435,50 +480,6 @@
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
-            // 
-            // ActivarCheck
-            // 
-            this.ActivarCheck.AutoSize = true;
-            this.ActivarCheck.Location = new System.Drawing.Point(280, 92);
-            this.ActivarCheck.Name = "ActivarCheck";
-            this.ActivarCheck.Size = new System.Drawing.Size(60, 15);
-            this.ActivarCheck.TabIndex = 22;
-            this.ActivarCheck.Text = "Activar";
-            this.ActivarCheck.UseSelectable = true;
-            // 
-            // RegularRbt
-            // 
-            this.RegularRbt.AutoSize = true;
-            this.RegularRbt.Location = new System.Drawing.Point(473, 92);
-            this.RegularRbt.Name = "RegularRbt";
-            this.RegularRbt.Size = new System.Drawing.Size(63, 15);
-            this.RegularRbt.TabIndex = 23;
-            this.RegularRbt.Text = "Regular";
-            this.RegularRbt.UseSelectable = true;
-            // 
-            // FinalRbtn
-            // 
-            this.FinalRbtn.AutoSize = true;
-            this.FinalRbtn.Location = new System.Drawing.Point(632, 92);
-            this.FinalRbtn.Name = "FinalRbtn";
-            this.FinalRbtn.Size = new System.Drawing.Size(48, 15);
-            this.FinalRbtn.TabIndex = 24;
-            this.FinalRbtn.Text = "Final";
-            this.FinalRbtn.UseSelectable = true;
-            // 
-            // SemiFinaRbtn
-            // 
-            this.SemiFinaRbtn.AutoSize = true;
-            this.SemiFinaRbtn.Location = new System.Drawing.Point(542, 92);
-            this.SemiFinaRbtn.Name = "SemiFinaRbtn";
-            this.SemiFinaRbtn.Size = new System.Drawing.Size(74, 15);
-            this.SemiFinaRbtn.TabIndex = 25;
-            this.SemiFinaRbtn.Text = "SemiFinal";
-            this.SemiFinaRbtn.UseSelectable = true;
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
             // 
             // rCuestionario
             // 

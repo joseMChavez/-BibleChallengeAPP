@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -41,6 +42,8 @@
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.AJugarmetroTabPage = new MetroFramework.Controls.MetroTabPage();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.RepuestaLb = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.MinLabel = new MetroFramework.Controls.MetroLabel();
@@ -59,7 +62,8 @@
             this.NextButton = new MetroFramework.Controls.MetroButton();
             this.freshButton = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.RepuestaLb = new MetroFramework.Controls.MetroLabel();
+            this.Cronoslabel = new System.Windows.Forms.Label();
+            this.Cronotimer = new System.Windows.Forms.Timer(this.components);
             this.metroTabControl1.SuspendLayout();
             this.RegistrosMetroTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -200,6 +204,7 @@
             // 
             // AJugarmetroTabPage
             // 
+            this.AJugarmetroTabPage.Controls.Add(this.Eliminarbutton);
             this.AJugarmetroTabPage.Controls.Add(this.RepuestaLb);
             this.AJugarmetroTabPage.Controls.Add(this.metroLabel3);
             this.AJugarmetroTabPage.Controls.Add(this.metroLabel5);
@@ -229,6 +234,38 @@
             this.AJugarmetroTabPage.VerticalScrollbarBarColor = true;
             this.AJugarmetroTabPage.VerticalScrollbarHighlightOnWheel = false;
             this.AJugarmetroTabPage.VerticalScrollbarSize = 3;
+            // 
+            // Eliminarbutton
+            // 
+            this.Eliminarbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Eliminarbutton.FlatAppearance.BorderSize = 0;
+            this.Eliminarbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Eliminarbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Eliminarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminarbutton.ForeColor = System.Drawing.Color.Black;
+            this.Eliminarbutton.Image = global::BibleChallengeAPP.Properties.Resources.x_cross_delete_stop_32;
+            this.Eliminarbutton.Location = new System.Drawing.Point(366, 221);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(62, 54);
+            this.Eliminarbutton.TabIndex = 43;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
+            // 
+            // RepuestaLb
+            // 
+            this.RepuestaLb.AllowDrop = true;
+            this.RepuestaLb.AutoSize = true;
+            this.RepuestaLb.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.RepuestaLb.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.RepuestaLb.Location = new System.Drawing.Point(78, 74);
+            this.RepuestaLb.Name = "RepuestaLb";
+            this.RepuestaLb.Size = new System.Drawing.Size(0, 0);
+            this.RepuestaLb.Style = MetroFramework.MetroColorStyle.Black;
+            this.RepuestaLb.TabIndex = 42;
             // 
             // metroLabel3
             // 
@@ -420,6 +457,7 @@
             // 
             // pregunta
             // 
+            this.pregunta.AllowDrop = true;
             this.pregunta.AutoSize = true;
             this.pregunta.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.pregunta.FontWeight = MetroFramework.MetroLabelWeight.Bold;
@@ -469,16 +507,22 @@
             this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroButton1.UseSelectable = true;
             // 
-            // RepuestaLb
+            // Cronoslabel
             // 
-            this.RepuestaLb.AutoSize = true;
-            this.RepuestaLb.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.RepuestaLb.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.RepuestaLb.Location = new System.Drawing.Point(78, 74);
-            this.RepuestaLb.Name = "RepuestaLb";
-            this.RepuestaLb.Size = new System.Drawing.Size(0, 0);
-            this.RepuestaLb.Style = MetroFramework.MetroColorStyle.Black;
-            this.RepuestaLb.TabIndex = 42;
+            this.Cronoslabel.AutoSize = true;
+            this.Cronoslabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Cronoslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 45.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cronoslabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Cronoslabel.Location = new System.Drawing.Point(381, 6);
+            this.Cronoslabel.Name = "Cronoslabel";
+            this.Cronoslabel.Size = new System.Drawing.Size(188, 70);
+            this.Cronoslabel.TabIndex = 43;
+            this.Cronoslabel.Text = "00:00";
+            // 
+            // Cronotimer
+            // 
+            this.Cronotimer.Interval = 1000;
+            this.Cronotimer.Tick += new System.EventHandler(this.Cronotimer_Tick);
             // 
             // MainForm
             // 
@@ -487,6 +531,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BackImage = global::BibleChallengeAPP.Properties.Resources._1489264288_shield_and_swords;
             this.ClientSize = new System.Drawing.Size(1023, 553);
+            this.Controls.Add(this.Cronoslabel);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.freshButton);
@@ -506,6 +551,7 @@
             this.AJugarmetroTabPage.ResumeLayout(false);
             this.AJugarmetroTabPage.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -539,6 +585,9 @@
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel RepuestaLb;
+        private System.Windows.Forms.Label Cronoslabel;
+        private System.Windows.Forms.Timer Cronotimer;
+        private System.Windows.Forms.Button Eliminarbutton;
     }
 }
 

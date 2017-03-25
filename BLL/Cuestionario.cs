@@ -66,7 +66,7 @@ namespace BLL
                 throw e;
             }
         }
-        public bool DesactivarPregunta(int id,int activo=0)
+        public static bool DesactivarPregunta(int id,int activo=0)
         {
             ConexionDb con = new ConexionDb();
             try

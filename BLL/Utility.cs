@@ -19,7 +19,7 @@ namespace BLL
     {
         public static void ConfigurarReporte(ReportViewer rv, string ruta, string DataSets, DataTable listado)
         {
-           
+            
             rv.LocalReport.DataSources.Clear();
             rv.ProcessingMode = ProcessingMode.Local;
 

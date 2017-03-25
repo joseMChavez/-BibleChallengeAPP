@@ -183,6 +183,16 @@ namespace BibleChallengeAPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1489865324_Print {
+            get {
+                object obj = ResourceManager.GetObject("1489865324_Print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paste_next_32 {
             get {
                 object obj = ResourceManager.GetObject("paste-next-32", resourceCulture);
@@ -196,6 +206,16 @@ namespace BibleChallengeAPP.Properties {
         internal static System.Drawing.Bitmap undo_32 {
             get {
                 object obj = ResourceManager.GetObject("undo-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap x_cross_delete_stop_32 {
+            get {
+                object obj = ResourceManager.GetObject("x_cross_delete_stop-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
