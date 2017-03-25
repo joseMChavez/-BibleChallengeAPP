@@ -410,9 +410,15 @@ namespace BibleChallengeAPP
 
             Cronoslabel.Visible = false;
             int id = Utility.ConvierteEntero(IdTextBox.Text);
-            Cuestionario.DesactivarPregunta(id);
-            Utility.Mensajes(this, 1, "Se a Eliminado del Listado!\n Tienen otra Oportumidad Equipo " + EquiposComboBox.Text);
+            DialogResult res;
+            res = MetroFramework.MetroMessageBox.Show(this, "¿Estas Seguro de Eliminar esta Pregunta? ", "C.B.OasisSFM", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Cuestionario.DesactivarPregunta(id);
+                Utility.Mensajes(this, 1, "Se a Eliminado del Listado!\n Tienen otra Oportumidad Equipo " + EquiposComboBox.Text);
+            }
         }
+           
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
